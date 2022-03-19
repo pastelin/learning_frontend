@@ -1,0 +1,131 @@
+* {
+	box-sizing: border-box;
+}
+
+.contenedor__formulario {
+	width: 600px;
+	max-width: 90%;
+	background: #ebf7fa;
+	margin: 0 auto;
+	font-family: 'Work Sans';
+	padding: 20px;
+	/* box-shadow: 0 5px 20px #696969; */
+	box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 30%);
+}
+
+.contenedor__formulario h1 {
+	font-size: 30px;
+	font-weight: 600;
+	margin: 0;
+	margin-bottom: 40px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.formulario__grupo,
+.formulario__grupo-descripcion {
+	margin-bottom: 20px;
+}
+
+label.formulario__label {
+	font-weight: 600;
+	font-size: 20px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.formulario__select,
+.formulario__input {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	color: rgba(0, 0, 0, 0.7);
+	border-radius: 5px;
+	text-align: center;
+	border: 3px solid transparent;
+}
+
+.formulario__textarea {
+	min-width: 100%;
+	max-width: 100%;
+	height: 150px;
+	border-radius: 5px;
+	text-align: center;
+	border: 3px solid transparent;
+}
+
+.formulario select:focus,
+.formulario input[type='number']:focus,
+.formulario textarea:focus {
+	border: 3px solid #ccc;
+	outline: none;
+}
+
+.formulario__grupo-btn-enviar button {
+	padding: 7px 40px;
+	border-radius: 5px;
+	border: 2px solid #0099e5;
+	background: #fff;
+	margin: auto;
+	display: block;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 18px;
+}
+
+.formulario__grupo-btn-enviar button:hover {
+	background: #0099e5;
+	color: #fff;
+}
+
+/* Estilos para el overlay */
+
+.overlay {
+	background-color: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 20;
+	visibility: hidden;
+}
+
+.overlay.active {
+	visibility: visible;
+}
+
+.popup.active {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.popup {
+	border-radius: 3px;
+	transition: 0.3s ease all;
+	transform: scale(0.7);
+	opacity: 0;
+}
+
+.popup .btn-cerrar-popup {
+	border: none;
+	background-color: transparent;
+	margin: 0 0 0 auto;
+	font-size: 16px;
+	line-height: 16px;
+	text-align: right;
+	display: block;
+	color: #bbbbbb;
+	transition: 0.3s ease all;
+}
+
+.popup .btn-cerrar-popup:hover {
+	color: #000;
+}

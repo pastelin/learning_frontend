@@ -1,0 +1,206 @@
+* {
+	box-sizing: border-box;
+}
+
+p,
+h3,
+h1 {
+	margin: 0;
+}
+
+body {
+	font-size: 20px;
+	background: #f9f9f9;
+}
+
+.contenedor {
+	font-family: 'Work Sans';
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+	background: #fff;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 5px 20px #696969;
+	position: relative;
+	z-index: 10;
+}
+
+.contenedor-interno {
+	margin: 0 40px 0px 40px;
+}
+
+/*------------ Estilos para el elemento HEADER ----------------*/
+
+header .contenedor-interno {
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+
+header .cabecera {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header .menu {
+	display: flex;
+	width: 70%;
+	justify-content: space-between;
+}
+
+header .menu a {
+	text-decoration: none;
+	display: inline;
+	height: 40px;
+	line-height: 40px;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 0 20px;
+	text-align: center;
+	color: #fff;
+	font-weight: 600;
+	border-radius: 5px;
+}
+
+header h1 {
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 40px;
+	font-weight: 400;
+}
+
+/*------------ Estilos para el contenedor de fecha y categoria ----------------*/
+
+.main .contenedor-categoria-fecha {
+	display: flex;
+	justify-content: space-between;
+}
+
+.main .contenedor-categoria-fecha .fecha,
+.main .contenedor-categoria-fecha .categoria {
+	height: 40px;
+	padding: 0 20px;
+	background: #e8eff1;
+	line-height: 40px;
+	border-radius: 5px;
+}
+.main .contenedor-categoria-fecha .fecha p,
+.main .contenedor-categoria-fecha .categoria {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: 'Work Sans';
+}
+
+.main .categoria-fecha .contenedor-interno {
+	margin-bottom: 40px;
+}
+
+/* Estilos para descripcion y total */
+
+.main .descripcion h1,
+.main .total p {
+	font-size: 40px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.25);
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.main .total p {
+	font-size: 60px;
+	font-weight: 600;
+}
+
+.main .descripcion .contenedor-interno,
+.main .total .contenedor-interno,
+.main .btn-opciones .contenedor-interno {
+	margin-bottom: 40px;
+}
+
+/* Estilos para los botones de las opciones */
+
+.main .btn-opciones nav {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 40px;
+}
+.main .btn-opciones nav button {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	color: #fff;
+	background: rgba(91, 105, 226, 0.75);
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: 600;
+	border: none;
+}
+
+.main .btn-opciones nav button i {
+	padding: 0 20px;
+	line-height: 50px;
+}
+
+.main .gastos-mes .contenedor-gastos-mes {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 40px;
+	height: 60px;
+	background: rgba(67, 168, 84, 0.6);
+	line-height: 60px;
+	font-weight: 600;
+	color: #fff;
+}
+
+/* Estilos para el cuadro de puntos superior e inferior */
+.fila-puntos {
+	display: flex;
+	justify-content: space-between;
+}
+
+.grupo-puntos {
+	margin: 20px 0 0 20px;
+	width: 185px;
+	height: 185px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.circulo {
+	width: 10px;
+	height: 10px;
+	background-color: #000;
+	border-radius: 50%;
+}
+
+.alineacion-derecha {
+	z-index: 2;
+	margin: 0 20px 20px auto;
+}
+
+.m-b-100 {
+	margin-bottom: -110px;
+}
+
+.m-t-100 {
+	margin-top: -110px;
+}
+
+/* Estilos para el footer */
+
+.pie-pagina {
+	width: 100%;
+	background: #e8eff1;
+	bottom: 0;
+	height: 60px;
+	line-height: 60px;
+}
+
+footer .pie-pagina h1 {
+	font-size: 20px;
+	font-weight: 900;
+	text-align: center;
+}
