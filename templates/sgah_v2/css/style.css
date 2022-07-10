@@ -1,0 +1,197 @@
+:root {
+	--fuenteHeading: 'PT Sans', sans-serif;
+	--fuenteParrafos: 'Opens Sans', sans-serif;
+
+	--blanco: #fff;
+	--negro: #000;
+	--gris: #e1e1e1;
+	--rojo: #ff4c4c;
+	--fondo: #f6f6f5;
+	--fondo2: #c1f1fc;
+
+	--btnAgregar: #0099e5;
+	--btnAgregarOscuro: #006496;
+	--btnEliminarOscuro: #cf4040;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: var(--fuenteParrafos);
+	font-size: 1.6rem;
+	line-height: 2;
+	background-color: var(--fondo2);
+}
+
+/** Globales **/
+.contenedor {
+	margin: 8rem auto;
+	width: min(90%, 120rem);
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--fuenteHeading);
+	line-height: 1.2;
+}
+
+h4 {
+	font-size: 2.8rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+img {
+	width: 100%;
+}
+
+/** Utilidades **/
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.rojo {
+	color: var(--rojo);
+}
+
+.mtop-4 {
+	margin-top: 4rem;
+}
+
+.h-30 {
+	height: 3rem;
+}
+
+/* Diseño de formulario principal */
+.header {
+	position: fixed;
+	background-color: var(--fondo2);
+	top: 0;
+	width: 100%;
+	height: 7rem;
+	padding: 2rem 4rem;
+}
+
+.formulario {
+	background-color: var(--blanco);
+	margin: auto auto;
+	width: 98%;
+	padding: 1rem 2rem;
+	margin-bottom: 3rem;
+	border-radius: 0.4rem;
+}
+
+.contenedor__formulario {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 2rem;
+}
+
+.campo {
+	display: flex;
+	margin-bottom: 2rem;
+	gap: 2rem;
+	width: 40%;
+}
+
+.campo__label {
+	flex: 0 0 9rem;
+	text-align: right;
+}
+
+.campo__field {
+	flex: 1;
+	border: 1px solid var(--gris);
+	border-radius: 0.4rem;
+}
+
+.campo__field:focus {
+	border-color: #000;
+	outline: none;
+	-webkit-box-shadow: 0 0 0 4px rgb(0 206 122 / 20%);
+	box-shadow: 0 0 0 4px rgb(0 206 122 / 20%);
+}
+
+.campo__field--error:focus {
+	border: 1px solid #e76262 !important;
+	box-shadow: 0 0 0 0.125rem rgba(255, 56, 96, 0.25) !important;
+}
+
+.campo__field--textarea {
+	min-height: 7rem;
+}
+
+.contenedor__formulario--desactivado {
+	display: none;
+}
+
+/* Diseño de Botones */
+
+.boton {
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	font-weight: 500;
+	justify-content: center;
+	width: 50%;
+	color: var(--blanco);
+}
+
+.boton--guardar {
+	background-color: var(--negro);
+	margin: 0 auto;
+	height: 4.5rem;
+}
+
+.boton--guardar:hover {
+	background-color: var(--blanco);
+	color: var(--negro);
+	border: 2px solid var(--negro);
+}
+
+.boton--agregar {
+	background-color: var(--btnAgregar);
+	height: 3.5rem;
+}
+
+.boton--agregar:hover {
+	background-color: var(--btnAgregarOscuro);
+}
+
+.boton--eliminar {
+	background-color: var(--rojo);
+	height: 3.5rem;
+}
+
+.boton--eliminar:hover {
+	background-color: var(--btnEliminarOscuro);
+}
+
+/* Estilos para reemplazar valores de Bootstrap */
+.form-check-input:checked {
+	background-color: var(--negro);
+	border-color: var(--negro);
+}

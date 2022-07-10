@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="contenedor__formulario">
+				<div class="">
+					<label class="fw-bold" for="ingresoInicial">Ingreso Mensual</label>
+					<input class="campo__field h-30" type="number" id="ingresoInicial" />
+				</div>
+
+				<h3 class="no-margin fw-bold">Disponible: <span class="rojo">$1800</span></h3>
+			</div>
+		</header>
+
+		<main class="contenedor">
+			<!-- Inicia form para el apartado de ahorro -->
+			<form action="" class="formulario">
+				<h2>Ahorro</h2>
+
+				<div class="contenedor__formulario">
+					<div class="campo">
+						<label class="campo__label" for="ahorroMonto">Monto</label>
+						<input class="campo__field" type="number" id="ahorroMonto" />
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="ahorroDescripcion"
+							>Descripci&oacute;n</label
+						>
+						<textarea
+							class="campo__field campo__field--textarea"
+							id="ahorroDescripcion"
+						></textarea>
+					</div>
+				</div>
+
+				<!-- Inicia apartado para inversiones en ahorro -->
+				<div class="form-check form-switch mb-3">
+					<input class="form-check-input" type="checkbox" id="inversionAhorro" />
+					<label class="form-check-label" for="inversionAhorro">Invertir</label>
+				</div>
+
+				<div
+					class="contenedor__formulario contenedor__formulario--desactivado"
+					id="divInversionAhorro"
+				>
+					<div class="campo">
+						<label class="campo__label" for="inversionMonto">Monto</label>
+						<input class="campo__field" type="number" id="inversionMonto" />
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="inversionDescripcion"
+							>Descripci&oacute;n</label
+						>
+						<textarea
+							class="campo__field campo__field--textarea"
+							id="inversionDescripcion"
+						></textarea>
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="inversionPlazo">Monto</label>
+						<input class="campo__field" type="number" id="inversionPlazo" />
+					</div>
+				</div>
+
+				<div class="campo">
+					<input class="boton boton--guardar" type="submit" value="Guardar" />
+				</div>
+			</form>
+			<!-- Inicia form para el apartado de ahorro -->
+
+			<!-- Inicia form para el apartado de gastos -->
+			<form class="formulario">
+				<!-- Inicio de partado para gastos -->
+				<h2>Gastos</h2>
+
+				<div class="contenedor__formulario">
+					<div class="campo">
+						<label class="campo__label" for="gastoMonto">Monto</label>
+						<input class="campo__field" type="number" id="gastoMonto" />
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="descripcionGasto"
+							>Descripci&oacute;n</label
+						>
+						<textarea
+							class="campo__field campo__field--textarea"
+							id="descripcionGasto"
+						></textarea>
+					</div>
+				</div>
+
+				<!-- Inicia apartado de gastos recurrentes -->
+				<h3 class="mb-5">Lista de gastos recurrentes</h3>
+
+				<div class="contenedor__formulario">
+					<div class="campo">
+						<label class="" for="nuevoTipoGasto">Tipo de gasto</label>
+						<input class="campo__field" type="text" />
+					</div>
+					<div class="campo">
+						<button class="boton boton--agregar">Agregar</button>
+					</div>
+				</div>
+
+				<table class="table table-striped my-5">
+					<thead class="table-dark">
+						<tr>
+							<th>Descripci&oacute;n</th>
+							<th>Monto</th>
+							<th>Modificar</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Gasto en casa</td>
+							<td>500</td>
+							<td><button class="boton boton--agregar">Modificar</button></td>
+							<td><button class="boton boton--eliminar">Eliminar</button></td>
+						</tr>
+						<tr>
+							<td>Gasto en casa</td>
+							<td>500</td>
+							<td><button class="boton boton--agregar">Modificar</button></td>
+							<td><button class="boton boton--eliminar">Eliminar</button></td>
+						</tr>
+						<tr>
+							<td>Total:</td>
+							<td colspan="3">$300</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- Finaliza apartado de gastos recurrentes -->
+
+				<!-- Incia apartado para pago de prestamos -->
+				<div class="form-check form-switch mb-3">
+					<input class="form-check-input" type="checkbox" id="checkPrestamo" />
+					<label class="form-check-label" for="inversionPrestamo">Pago de prestamo</label>
+				</div>
+
+				<div
+					class="contenedor__formulario contenedor__formulario--desactivado"
+					id="divPrestamo"
+				>
+					<div class="campo">
+						<select class="campo__field h-30" name="" id="">
+							<option value="">Seleccione una opcion</option>
+							<option value="">Seleccione</option>
+						</select>
+					</div>
+
+					<div class="campo">
+						<p class="no-margin">A pagar: <span class="rojo">$1500</span></p>
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="prestamoMonto">Monto</label>
+						<input class="campo__field" type="number" id="prestamoMonto" />
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="descripcionPrestamo"
+							>Descripci&oacute;n</label
+						>
+						<textarea
+							class="campo__field campo__field--textarea"
+							id="descripcionPrestamo"
+						></textarea>
+					</div>
+				</div>
+				<!-- Finaliza apartado para pago de prestamos -->
+
+				<!-- Inicia apartado para inversiones en gastos -->
+				<div class="form-check form-switch mb-3">
+					<input class="form-check-input" type="checkbox" id="inversionGasto" />
+					<label class="form-check-label" for="inversionGasto">Invertir</label>
+				</div>
+
+				<div
+					class="contenedor__formulario contenedor__formulario--desactivado"
+					id="divInversionGasto"
+				>
+					<div class="campo">
+						<label class="campo__label" for="inversionMontoGasto">Monto</label>
+						<input class="campo__field" type="number" id="inversionMontoGasto" />
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="inversionDescripcionGasto"
+							>Descripci&oacute;n</label
+						>
+						<textarea
+							class="campo__field campo__field--textarea"
+							id="inversionDescripcionGasto"
+						></textarea>
+					</div>
+
+					<div class="campo">
+						<label class="campo__label" for="inversionPlazoGasto">Monto</label>
+						<input class="campo__field" type="number" id="inversionPlazoGasto" />
+					</div>
+				</div>
+				<!-- Finaliza apartado para inversiones en gastos -->
+
+				<div class="campo">
+					<input class="boton boton--guardar" type="submit" value="Guardar" />
+				</div>
+				<!-- Finaliza partado para gastos -->
+			</form>
+		</main>
+		<script src="./js/principal.js"></script>
+	</body>
+</html>

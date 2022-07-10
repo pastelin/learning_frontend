@@ -1,0 +1,99 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.contenedor {
+	display: grid;
+	background: #343e46;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+}
+
+/* Estilos para el contenedor izquierdo */
+.contenedor-nombres {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 10px;
+}
+
+.contenedor-nombre {
+	background: #535e66;
+	padding: 20px 10px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.contenedor-nombre:hover {
+	background: rgba(232, 107, 25, 0.8);
+}
+
+/* Estilos para el contenedor derecho */
+.contenedor-izquierdo {
+	width: 700px;
+	border-radius: 3px;
+}
+
+.contenedor-opciones {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 5px;
+}
+
+.contenedor-opcion {
+	padding: 20px 10px;
+	width: 100%;
+	cursor: pointer;
+	background: #535e66;
+}
+
+.contenedor-opcion:hover {
+	background: rgba(232, 107, 25, 0.8);
+}
+
+.activo {
+	background: #e86b19;
+}
+
+.contenedor-datos {
+	height: 100%;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.formato-datos {
+	display: flex;
+	justify-content: space-between;
+}
+
+.formato-datos p {
+	color: #f8f8f8;
+	font-size: 18px;
+	padding: 3px 70px;
+}
+
+.subtitulos {
+	font-weight: 900;
+}
+
+h1 {
+	padding: 40px 0 30px 25px;
+	color: #f8f8f8;
+}
+
+.contenedor-error {
+	text-align: center;
+}
+
+.texto {
+	font-size: 18px;
+	font-weight: 900;
+	text-align: center;
+	color: #f8f8f8;
+}

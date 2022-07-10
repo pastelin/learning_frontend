@@ -2,6 +2,10 @@
 **/bin/
 
 ## folders
+**/node_modules
+**/.vs
+**/.vscode
+**/dist
 **/.metadata/
 **/.sonarlint/
 **/build/
@@ -16,6 +20,8 @@
 ## archivos
 **/.classpath
 **/.project
+**/.pnp
+**/.pnp.js
 
 
 # Package Files #
@@ -29,3 +35,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# testing
+**/coverage
+
+# misc
+**/.DS_Store
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
