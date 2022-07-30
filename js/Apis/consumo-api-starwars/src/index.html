@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<div class="container-fluid min-width-450">
+			<div class="row mt-3">
+				<div class="col">
+					<h1 class="text-center text-muted fw-light">
+						Consumo API de personajes de Star Wars
+					</h1>
+					<hr />
+				</div>
+			</div>
+
+			<div class="row mt-0 mt-md-2 mt-lg-4 justify-content-center">
+				<!-- Boton de los personajes de star wars -->
+				<div class="col-12 col-md-10 col-lg-3 mb-2 mb-md-4">
+					<!-- Botones que se mostraran cuando comiencen en el tamaño grande -->
+					<div class="d-none d-lg-block">
+						<div class="d-grid gap-2" id="btnNombres">
+							<!-- <button type="button" class="btn btn-lg btn-26a0ff">Prueba</button> -->
+						</div>
+					</div>
+
+					<!-- Dropdown que se mostrara cuando el tamaño sea menos al grande -->
+					<div class="d-block d-lg-none">
+						<div class="btn-group dropend">
+							<a
+								class="btn btn-sm btn-dark dropdown-toggle"
+								role="button"
+								id="dropdownMenuLink"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Personajes
+							</a>
+
+							<ul
+								class="dropdown-menu dropdown-menu-dark"
+								aria-labelledby="dropdownMenuLink"
+								id="btnNombresDropdown"
+							>
+								<!-- <li><a class="dropdown-item">Prueba</a></li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-10 col-lg-8 col-xl-7">
+					<!-- Nav superior con opciones de datos a mostrar por personaje -->
+					<div class="d-none d-sm-block">
+						<ul class="nav nav-tabs" id="btnOpcionesPersonajeSuperior">
+							<!--
+							<li class="nav-item">
+								<a href="" class="nav-link active" aria-current="page">
+									Elemento #2
+								</a>
+							</li>
+						 -->
+						</ul>
+					</div>
+
+					<div class="d-flex">
+						<!-- Nav  izquierdo con opciones de datos a mostrar por personaje-->
+						<div class="col-3 d-block d-sm-none">
+							<nav class="nav flex-column gap-2" id="btnOpcionesPersonajeIzquierdo">
+								<!-- <a class="nav-link active" aria-current="page" href="#">Active</a> -->
+							</nav>
+						</div>
+
+						<!-- Muestra informacion del personaje -->
+						<div class="contenido col-9 col-sm-12" id="contenedorPersonaje">
+							<!-- <h3 class="mb-3 my-sm-3 ps-sm-4 text-muted text-center text-sm-start">
+								TIE Advanced x1
+							</h3>
+							<div class="row" id="informacionPersonaje">
+								<div class="col-12 col-sm-6 pstart-1">
+									<p class="fw-bold text-muted mb-1">
+										Lorem ipsum dolor sit amet.
+									</p>
+								</div>
+								<div class="col-12 col-sm-6 text-end pe-5">
+									<p class="text-muted">Lorem ipsum dolor sit amet.</p>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col d-flex justify-content-end">
+					<!-- Boton de navegacion Anterior -->
+					<svg
+						id="previous"
+						xmlns="http://www.w3.org/2000/svg"
+						width="40"
+						height="40"
+						fill="currentColor"
+						class="bi bi-arrow-left-circle-fill"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+						/>
+					</svg>
+				</div>
+
+				<!-- Boton de navegacion Siguiente -->
+				<div class="col d-flex justify-content-start">
+					<svg
+						id="next"
+						xmlns="http://www.w3.org/2000/svg"
+						width="40"
+						height="40"
+						fill="currentColor"
+						class="bi bi-arrow-right-circle-fill"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+						/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

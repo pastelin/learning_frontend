@@ -1,0 +1,93 @@
+.btn-26a0ff {
+  background: #26a0ff;
+  color: #fff;
+}
+
+.btn-26a0ff:hover {
+  background-color: #45fea0;
+  opacity: .6;
+}
+
+.activo {
+  background-color: #45fea0;
+  color: #000;
+}
+
+.btn-45ffff {
+  color: #45ffff;
+}
+
+svg {
+  opacity: .7;
+}
+
+svg:hover {
+  opacity: 1;
+}
+
+.min-width-450 {
+  min-width: 350px;
+}
+
+.pstart-1 {
+  padding-left: 70px;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+/* Medias para cambiar el tamaño de las fuentes */
+
+@media screen and (max-width:760px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .btn-lg {
+    font-size: 18px;
+  }
+
+  p,
+  li > a,
+  nav > a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:540px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .btn-lg,
+  h3 {
+    font-size: 16px;
+  }
+
+  p,
+  li > a,
+  nav > a {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .btn-lg,
+  h3 {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  svg {
+    width: 30px;
+  }
+}
