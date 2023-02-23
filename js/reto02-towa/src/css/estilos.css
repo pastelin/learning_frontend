@@ -1,0 +1,132 @@
+* {
+	box-sizing: border-box;
+}
+.contenedor {
+	width: 800px;
+	max-width: 90%;
+	margin: 10px auto;
+	box-shadow: 0 5px 20px #0099e5;
+}
+
+.contenedor h1 {
+	margin: 0;
+	padding: 10px 0 20px 0;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.contenedor-imagen,
+.contenedor-galeria,
+.contenedor-error {
+	margin: 0 30px;
+}
+
+.contenedor-imagen input {
+	font-size: 14px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.contenedor-imagen .centrar-imagen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}
+
+.contenedor-imagen .vista-previa {
+	height: 180px;
+}
+.contenedor-imagen .vista-previa img:hover {
+	opacity: 1;
+}
+.contenedor-imagen .vista-previa img {
+	vertical-align: top;
+	height: 100%;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.contenedor-imagen h3 {
+	margin: 10px 0 10px 0;
+	text-align: center;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.contenedor-imagen button {
+	display: block;
+	margin: auto;
+	font-size: 16px;
+	border-radius: 5px;
+	padding: 10px 40px;
+	border: 2px solid #0099e5;
+	font-weight: 600;
+	background: #fff;
+	cursor: pointer;
+}
+
+.contenedor-imagen button:hover {
+	background: #0099e5;
+	color: #fff;
+}
+
+.contenedor-galeria .centrar-galeria {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 300px;
+	overflow: hidden;
+}
+
+.contenedor-galeria .imagen-galeria {
+	height: 280px;
+}
+
+.contenedor-galeria .imagen-galeria img {
+	height: 100%;
+	cursor: pointer;
+}
+
+.contenedor-galeria .centrar-galeria button {
+	font-size: 50px;
+	cursor: pointer;
+	background: #fff;
+	border: none;
+}
+
+.p-r-40 {
+	padding-right: 40px;
+}
+
+.p-l-40 {
+	padding-left: 40px;
+}
+
+.contenedor .contenedor-error {
+	height: 30px;
+	text-align: center;
+	margin-top: 5px;
+	line-height: 30px;
+	transition: all 0.7s ease-in;
+}
+
+.contenedor .contenedor-error span {
+	color: #fff;
+	font-size: 20px;
+}
+
+.msg-hidden {
+	visibility: hidden;
+}
+
+.msg-error {
+	background: #ff4c4c;
+	visibility: visible;
+}
+
+.msg-ok {
+	background: #34bf49;
+	visibility: visible;
+}

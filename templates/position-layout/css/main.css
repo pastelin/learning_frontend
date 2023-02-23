@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #4a465b;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+}
+
+.contenedor {
+  margin: 20px auto;
+  max-width: 1000px;
+  overflow: hidden;
+  width: 90%;
+}
+
+header {
+  background: #fff;
+}
+
+header nav ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+header nav ul li {
+  float: left;
+}
+
+header nav ul li a {
+  color: #000;
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 20px;
+}
+
+header nav ul li a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.main {
+  background: #fff;
+  float: left;
+  width: 70%;
+}
+
+.main .imagen {
+  width: 100%;
+}
+
+.main .imagen img {
+  vertical-align: top;
+  width: 100%;
+}
+
+.main .posts {
+  padding: 40px;
+}
+
+.main .posts article h2 {
+  color: #424242;
+  margin-bottom: 20px;
+}
+
+.main .posts article p {
+  line-height: 27px;
+  margin-bottom: 15px;
+}
+
+aside {
+  background: #161f26;
+  color: #fff;
+  float: left;
+  padding: 20px;
+  width: 30%;
+}
+
+aside .widget {
+  margin-bottom: 20px;
+}
+
+aside .widget .titulo {
+  color: #ff8000;
+  border-bottom: 1px solid #ff8000;
+  margin-bottom: 10px;
+}
+
+aside .widget ul {
+  list-style: none;
+}
+
+aside .widget ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 0;
+}
+
+aside .widget ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+aside .widget ul li a:hover {
+  color: #8f8f8f;
+}
+
+aside .widget p {
+  line-height: 27px;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  padding: 15px 0;
+  text-align: center;
+  width: 70%;
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    width: 100%;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+  }
+}

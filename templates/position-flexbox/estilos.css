@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000 url('imagenes/fondo.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 1000px;
+  width: 90%;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px 0;
+  width: 100%;
+}
+
+header .menu a {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 40px;
+  text-decoration: none;
+}
+
+header .menu a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  background: #fff;
+  padding: 20px;
+  width: 70%;
+}
+
+.main article .thumb {
+  margin-bottom: 20px;
+}
+
+.main article .thumb img {
+  vertical-align: top;
+  width: 100%;
+}
+
+.main article h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.main article p {
+  font-size: 14px;
+  line-height: 27px;
+  margin-bottom: 20px;
+}
+
+aside {
+  background: #537dca;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  width: 30%;
+}
+
+aside .ad {
+  background: #4264a2;
+  color: #fff;
+  font-size: 30px;
+  padding: 50px 0;
+  text-align: center;
+}
+
+footer {
+  background: rgba(255,255,255,.2);
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 20px;
+  width: 100%;
+}
+
+footer .redes-sociales a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+footer .redes-sociales a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width:800px) {
+  .main {
+    width: 100%;
+  }
+
+  aside {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  aside .ad {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  header {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  header .menu {
+    background: rgba(255,255,255,.02);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  header .menu a {
+    margin: 0 20px;
+  }
+
+  header .logo {
+    margin-bottom: 20px;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer .autor {
+    order: 2;
+  }
+
+  footer .redes-sociales {
+    order: 1;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  aside {
+    display: none;
+  }
+}

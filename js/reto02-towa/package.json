@@ -1,0 +1,20 @@
+{
+	"name": "reto02-towa",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --mode production"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"lit-element": "^3.0.2",
+		"lit-fontawesome": "^0.1.3"
+	},
+	"devDependencies": {
+		"webpack": "^5.64.4",
+		"webpack-cli": "^4.9.1"
+	}
+}
