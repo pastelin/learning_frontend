@@ -1,0 +1,98 @@
+<!doctype>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title></title>
+  </head>
+
+  <body>
+    <component-dia></component-dia>
+
+    <dom-module id="component-dia">
+      <template>
+	<style>
+	  .contenedor{
+	    width: 30%;
+	    margin: auto;
+	    text-align: center;
+	    border: 1px solid black; 
+	    background-color: #ded15f;
+	  }
+	  .contenedor .panel{
+	    padding: 5px;
+	    margin: 10px; 
+	  }
+	  .contenedor .panel .btn{
+	    margin: 4px;
+	    padding: 4px;
+	    width: 60%;
+	    background-color: gray;
+	    border: none;
+	  }
+	  .contenedor .panel input{
+	    width:60%;
+	    padding:5px;
+	    border: none;
+	  }
+	  .green{ background-color: green; height:50px; padding: 8px; }
+	  .yellow{ background-color: yellow; height: 50px; padding: 8px;}
+	  .gray{ background-color: gray; height: 50px; padding: 8px; }
+	  .blue{ background-color: blue; height: 50px; padding: 8px;}
+
+	</style>
+        <div class="contenedor">
+	  <div class="panel">
+	    <div class$=[[color]]>
+	      <div>[[name]]</div>
+	      <div>[[perfil]]</div>
+	    </div>
+	  </div>
+	  <div class="panel">
+	    <div><input type="text" value={{name::input}}></div> <br>
+	    <div><input type="text" value={{perfil::input}}></div>  <br>
+	    <button class="btn" on-click="addGreen">to green</button><br>
+	    <button class="btn" on-click="addYellow">to yellow </button><br>
+	    <button class="btn" on-click="addGray">to gray</button><br>
+	  </div>
+	</div>
+      </template>
+      <script>
+	class ComponentDia extends Polymer.Element{
+	  static get is(){ return "component-dia" }
+	  static get properties(){
+	    return {
+	      name: {
+	        type: String, value:'Juan Pastelin Brioso'
+	      },
+	      perfil: {
+	        type: String, value: 'Awesome developer'
+	      },
+	      color: {
+	       type: String, value: 'blue'
+	      }
+	    }
+	  }
+	  addGreen(e){
+	    this.color = 'green';
+	  }
+	  addGray(e){
+	    this.color = 'gray';
+	  }
+	  addYellow(e){
+	    this.color = 'yellow';
+	  }
+	  
+        }
+	customElements.define(ComponentDia.is, ComponentDia);
+      </script>
+
+    </dom-module>
+  </body>
+
+
+
+
+</html>

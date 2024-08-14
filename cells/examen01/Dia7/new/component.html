@@ -1,0 +1,173 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Mi primer componente</title>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+
+    <link rel="import" href="polymer/polymer-element.html">
+
+  </head>
+
+  <body>
+ 
+    <polymer-element></polymer-element>
+    
+    <dom-module id="polymer-element">
+      <template>
+	<style>
+	  :host{
+	    display: block;
+	    width:50%;
+	    margin: auto;
+	    background-color: cyan;
+	    text-align: center; 
+	    border-radius: 10px;
+	  }
+
+	  :host .contenido{
+	    background-color: white;
+	  }
+	  
+        </style>
+     	<h2>Mi primer elemento</h2>
+	<div class="contenido"><span>Month: [[month]]</span>&nbsp;&nbsp;&nbsp;<span>Season:[[season]]</span></div> <br>
+	
+	<component-add month-add="{{month}}" season-add="{{season}}" months-add="{{months}}"></component-add>
+
+	<component-btn month-btn="{{month}}" season-btn="{{season}}"  months-btn="{{months}}"></component-btn>
+	
+      </template>
+      <script>
+	class PolymerElement extends Polymer.Element{
+	  static get is() { return "polymer-element" }
+	  static get properties(){
+	    return {
+	      month:{ type: String },
+	      season:{ type: String},	      
+	      months:{
+	       	type: Array, 
+		value:[
+		  {name: 'Enero', season: 'Winter'},
+		  {name: 'Febrero', season: 'Winter'},
+		  {name: 'Marzo', season: 'Winter'},
+		  {name: 'Abril', season:'Spring'},
+		  {name: 'Mayo', season: 'Spring'}
+ 		]
+	      }
+	    }
+ 	  }
+        }
+	customElements.define(PolymerElement.is, PolymerElement);
+      </script>
+    </dom-module>
+
+    <!--Módulo para mostrar todos los botones o eliminarlos-->
+    <dom-module id="component-btn">
+      <template>
+	<style>
+	  :host{
+	    display: block;
+	    background-color: gray;
+	    padding: 7px;
+	  }
+ 	  :host button{
+	    border: none;
+	    padding: 5px;
+	    margin: 2px 0;
+	    color: white;
+	    border-radius: 8px;
+	  }
+	  :host .blue{ background-color: #111117; width:20%;}
+	  :host .red{ background-color: red; width: 10%;}
+
+  	</style>
+	<template is="dom-repeat" items="{{monthsBtn}}">
+	  <button class="blue" on-click = "cambiarMes">{{item.name}}</button>
+	  <button class="red" on-click = "removerMes">x</button><br>
+	</template>
+      </template>
+
+      <script>
+	class ComponentBtn extends Polymer.Element{
+	  static get is(){ return "component-btn" }
+	  static get properties(){
+	    return {
+	      monthsBtn: { type: Array, notify: true },
+	      monthBtn: { type: String, notify: true },
+	      seasonBtn: { type: String, notify: true}
+	    }
+	  }
+	  cambiarMes(e){
+	    let datos = e.model.item;
+	    this.monthBtn = datos.name;
+	    this.seasonBtn = datos.season;
+	  }	
+	  removerMes(e){
+	    let i = e.model.index;
+	    this.splice('monthsBtn', i, 1); 
+	  }	  
+	}
+	customElements.define(ComponentBtn.is, ComponentBtn);
+
+      </script>
+
+    </dom-module>
+
+
+
+
+    <!--Módulo para crear un nuevo botón-->
+    <dom-module id="component-add">
+      <template>
+	<style>
+	  :host{
+	    display:block;
+	    border: 1px solid black;
+	    padding: 10px;
+ 	    margin: 3px;
+	  }
+	  :host input{
+	    border: none;
+	    margin: 3px;
+	  }
+	  :host button{
+	    width: 17%;
+	    border: none;
+	    background-color: #03a9f4;
+	    padding: 4px;
+	    border-radius: 6px;
+	  }
+
+	</style>
+	<div>
+	  Mes: <input type="text" value="{{monthAdd::input}}" /><br>
+	  Año: <input type="text" value="{{seasonAdd::input}}" /><br>
+	  <button on-click="addMonth">Add</button>  
+	</div>
+      </template>
+      <script>
+	class ComponentAdd extends Polymer.Element{
+	  static get is(){ return "component-add" }
+	  static get properties(){
+	    return {
+	      monthAdd: { type: String, notify: true  },
+	      seasonAdd: { type: String, notify: true},
+	      monthsAdd: { type: Array, notify: true}
+	    }
+  	  }
+	  addMonth(e){
+	      let mes = this.monthAdd;
+	      let season = this.seasonAdd;
+	      this.push('monthsAdd', {name: mes, season: season}) 
+	  
+	  }
+	} 
+	customElements.define(ComponentAdd.is, ComponentAdd);
+      </script>
+    </dom-module>
+
+  </body>
+</html>

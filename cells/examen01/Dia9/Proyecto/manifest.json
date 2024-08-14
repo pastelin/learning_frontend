@@ -1,0 +1,7 @@
+{
+  "name": "User card",
+  "short_name": "User card",
+  "description": "Primera prueba",
+  "start_url": "/",
+  "display": "standalone"
+}

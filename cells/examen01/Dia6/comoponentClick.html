@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Component Click</title>
+  </head>
+  <body>
+    <component-click></component-click>
+    <dom-module id="component-click">
+      <template>
+	<script></script>
+        <button on-click="demo">Demo</button>
+      </template>
+      <script>
+	class ComponentClick extends Polymer.Element{
+	  static get is(){ return "component-click" }
+	  static get properties(){ return {} }
+	  demo(event){
+	    console.log(event);
+	  }
+	}
+	customElements.define(ComponentClick.is, ComponentClick);
+      </script>
+
+    <dom-module>
+
+
+
+
+  </body>
+  
+
+
+
+</html>

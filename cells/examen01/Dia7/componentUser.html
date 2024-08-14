@@ -1,0 +1,105 @@
+<!doctype HTML>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Component user</title>
+  </head>
+  <body>
+    <component-user></component-user>
+
+    <dom-module id="component-user">
+      <template>
+	<style>
+	  :host .previous{
+	    float: right;
+
+	  }
+
+	</style>
+        <div>
+	  <div></div>
+	  <div>Username:</div>
+	  <div>Email:</div>
+	  <component-address></component-address>
+	  <div>Phone:</div>
+	  <div>Website:</div>
+	  <component-company></component-company>
+
+	  <button class="previous"><</button>
+	  <button class="next" on-click="obtenerAlgo">></button>
+	</div>
+     </template>
+     <script>
+	class ComponentUser extends Polymer.Element{
+	  static get is(){ return "component-user" }
+	  static get properties() { return {
+	    
+	  } }
+
+	  async obtenerAlgo(){
+            let response = await fetch('https://jsonplaceholder.typicode.com/users');
+	    let arr = await response.json();
+	    console.log(arr.map(data => data.name))
+	  }
+
+
+	}
+	customElements.define(ComponentUser.is, ComponentUser);
+        
+     </script>
+    </dom-module>
+
+    <dom-module id="component-address">
+      <template>
+	<style></style>
+	<div>
+	  <span>Address</span>
+	  <div>
+	    <div>Street:</div>
+	    <div>Suite:</div>
+	    <div>City:</div>
+	    <div>Zipcode</div>
+	    <div>Geo <span></span>Lat: <span></span>Lgn: </div>
+	  </div>
+	</div>
+      </template>
+      <script>
+	class ComponentAddress extends Polymer.Element{
+	  static get is() { return "component-address" }
+	  static get properties() { return {} }
+
+	}
+	customElements.define(ComponentAddress.is, ComponentAddress);
+      </script>
+    </dom-module>
+
+    <dom-module id="component-company">
+      <template>
+	<style></style>
+	<div>
+	  <span>Company</span>
+	  <div>Name: </div>
+	  <div>Catch phrase</div>
+	  <div>Bs: </div>
+	</div>
+
+      </template>
+      <script>
+	class ComponentCompany extends Polymer.Element{
+	  static get is(){ return "component-company" }
+	  static get properties(){ return {} }
+	}
+	customElements.define(ComponentCompany.is, ComponentCompany);
+
+      </script>
+
+
+    </dom-module>
+
+  </body>
+
+
+</html>

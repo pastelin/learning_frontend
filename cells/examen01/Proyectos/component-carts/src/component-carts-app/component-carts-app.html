@@ -1,0 +1,63 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./component-address.html">
+<link rel="import" href="./component-company.html">
+
+<dom-module id="component-carts-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 70%;
+        min-width: 430px;
+        margin-left: 15%;
+        background-color: gray;
+        text-align: center;
+        position: absolute;
+        bottom: 30px;
+        top: 10px;
+        overflow-x: auto;
+      }
+
+      :host .title {
+        width: 40%;
+        display: inline-block;
+        text-align: left ;
+        margin: auto;
+        padding: 3px;
+      }
+
+      :host .cont {
+        display: inline-block;
+        width: 40%;
+      }
+    </style>
+    <div>
+      <div><button>Llenar carta</button></div>
+      <div><span class="title">Username:</span><span class="cont">[[userActual.username]]</span></div>
+      <div><span class="title">Email:</span><span class="cont"> [[userActual.email]]</span></div>
+      <component-address address-actual="{{userActual}}"></component-address>
+      <div><span class="title">Phone:</span><span class="cont"> [[userActual.phone]]</span></div>
+      <div><span class="title">Website:</span><span class="cont"> [[userActual.website]]</span></div>
+      <component-company company-actual="{{userActual}}"></component-company>
+
+      <button on-click="decremento"> < </button> 
+      <button on-click="obtenerUsers"> > </button>
+    </div>
+  </template>
+
+  <script>
+    class ComponentCartsApp extends Polymer.Element {
+      static get is() { return 'component-carts-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'component-carts-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ComponentCartsApp.is, ComponentCartsApp);
+  </script>
+</dom-module>

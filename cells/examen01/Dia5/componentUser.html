@@ -1,0 +1,60 @@
+<!doctype HTML>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Mi componente de usuarios</title>
+  </head>
+
+  <body>
+
+    <component-user></component-user> 
+    <dom-module id="component-user">
+    <template>
+      <style>
+	.container{
+	  background-color: gray; border: 1px solid black;}
+      </style>
+      <div class="container">
+        <h3>Tarjeta de usuario</h3>
+	<div>id: <span></span></div>
+	<div>name: <span></span></div>
+	<div>username: <span></span></div>
+	<div>email: <span></span></div>
+	<div>address<span></span></div>
+	<div>phone<span></span></div>
+	<div>website<span></span></div>
+	<div>company<span></span></div>
+      </div>
+
+    </template>
+    <script>
+      class ComponentUser extends Polymer.Element{
+      	static get is(){return "component-user"}
+   	static get properties(){
+	  return {
+	    valor: String
+	  }
+	}
+	constructor(){
+	  super();
+	}
+	ready(){
+	  super.ready();
+	}
+
+      }
+      customElements.define(ComponentUser.is, ComponentUser);
+    </script>
+  </dom-module>
+
+  </body>
+
+
+
+
+
+</html>
+

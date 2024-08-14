@@ -1,0 +1,48 @@
+<!doctype HTML>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Component TV</title>
+  </head>
+
+  <body>
+    <component-tv></component-tv>
+    <dom-module id="component-tv">
+      <template>
+	<style></style>
+	<div>
+	  <h2>Componente TV</h2>
+	  <div>Precio: [[precio]]</div>
+	  <div>Marca: [[marca]]</div>
+	  <div><input type="text" value={{marca::input}}></div>
+	  <div>¿Es una Smart TV?: [[tipo]]</div>
+	</div>
+      </template>
+
+      <script>
+	class ComponentTv extends Polymer.Element{
+	  static get is(){ return "component-tv" }
+	  static get properties(){	
+	    return {
+	      precio: {
+		type: Number, value: 8500
+	      },
+	      marca: {
+		type: String, value: 'LG'
+	      },
+	      tipo: {
+		type: Boolean, value: true
+	      }
+	    }
+	  }
+ 	}
+	customElements.define(ComponentTv.is, ComponentTv);
+      </script>
+    <dom-module>
+
+  </body>
+
+</html>

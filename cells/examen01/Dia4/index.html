@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mi primera página</title>
+  </head>
+
+  <body>
+    <style>
+      .container{
+	height: 600px;
+	box-sizing: border-box;
+      }
+      .container .left{
+	display: inline-block;
+	width: 250px; 
+	background-color: yellow;
+	min-height: 600px;
+      }
+      .container .content{
+     	display: inline-block; 
+	
+	width: 450px;
+	background-color: blue;
+	min-height: 600px;
+
+      }
+    </style>
+    <div class="container">
+
+      <div class="left">
+ 	<ul>
+	  <li>username</li>
+	</ul>
+      </div>
+      <div class="content">
+	<div id="name"></div>
+	<div id="username"></div>
+	<div id="email"></div>
+	<div id="address"></div>
+	<div id="phone"></div>
+	<div id="website"></div>
+	<div id="company"></div>
+      </div>
+
+    </div> 
+
+ 
+    <script src="./app.dist.js" ></script>
+          
+  </body>
+
+</html>
+
+
+

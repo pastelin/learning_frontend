@@ -1,0 +1,70 @@
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Component User</title>
+  </head>
+
+  <body>
+    <component-user></component-user>
+    <dom-module id="component-user">
+      <template>
+	<style>
+	  .gray {background-color:gray;}
+	  .pink {background-color:pink;}
+	  .container{
+	    min-width:200px;
+	    max-width:40%;
+	    margin:auto;
+	    border:1px solid black;
+	    background-color:violet;
+	    border-radius:10px;
+	  }
+	.container div, h2{
+	    margin:2px;
+	    padding:2px;
+	    border: 1px solid gray;
+	    border-radius:5px;
+	    text-align:center;
+ 	}
+
+
+	</style>
+	
+	<div class="container">
+	  <h2>Componente Usuario</h2>
+	  <div class$=[[color]]>Name: [[name]]</div>
+	  <div><input type="text" value={{name::input}} /></div>
+	  <div>Age: [[age]]</div>
+	  <div>Address:<br> &nbsp;&nbsp; calle: [[address.street]] <br>&nbsp;&nbsp; 
+		cp:[[address.cp]]</div>
+	  <div><input type="text" value={{color::input}} /></div>
+	</div>
+      </template>
+      <script>
+	class ComponentUser extends Polymer.Element{
+	  static get is(){return "component-user"}
+	  static get properties(){
+	    return{
+	      name: {
+		type: String, value: 'Juan'
+	      },
+	      age: {
+		type: Number, value: 22 
+	      },
+	      address: {
+		type: Object, value: {street: 'rosales', cp: '0902202'}
+	      },
+	      color: String
+	    }
+	  }
+	}
+	customElements.define(ComponentUser.is, ComponentUser);
+      </script>
+    </dom-module>
+  </body>
+</html>

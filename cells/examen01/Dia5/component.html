@@ -1,0 +1,79 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Mi primer componente</title>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+
+    <link rel="import" href="polymer/polymer-element.html">
+
+  </head>
+
+  <body>
+    <h1>Wellcome</h1>
+    <polymer-element></polymer-element>
+    
+    <dom-module id="polymer-element">
+      <template>
+	<style>
+	  .orange{background-color: orange;}
+	  .green{background-color:green;}
+        </style>
+     	<h2>Mi primer elemento</h2>
+	<div class$="[[color]]">Mes: [[month]]</div>
+	<div><input type="text" value={{month::input}} /></div>
+	<di><input type="text" value={{color::input}} /></div>
+      </template>
+      <script>
+	class PolymerElement extends Polymer.Element{
+	  static get is() { return "polymer-element" }
+	  static get properties(){
+	    return {
+	      month:{
+		type: String, value: 'November'
+	      }, 
+	      color: String
+	    }
+ 	  }
+	  constructor(){
+	    super();
+	    console.log('inside constructor');
+	  }
+	  connectedCallback(){
+	    super.connectedCallback();
+	    console.log('inside cennectedCallback');
+	  }
+	  disconnectedCallback(){
+	    super.disconnectedCallback();
+	    console.log('disconnectedCallback');
+	  }
+	  attributeChangedCallback(nombre, valorAnterior, valorNuevo){
+	    super.attributeChangedCallback();
+	    console.log('Ejecutándose attributeChangedCallback', nombre, valorAnterior, valorNuevo);
+	  }
+
+	  ready(){
+	    super.ready();
+	    console.log('Ejecutándose ready');
+	  }
+
+
+        }
+	customElements.define(PolymerElement.is, PolymerElement);
+
+      </script>
+ 	
+
+
+    </dom-module>
+
+
+
+
+  </body>
+
+
+
+</html>

@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "posts": [
+    {
+      "id": 2
+      "title": "nueno-json-server",
+      "author": "Pastelin Brioso Juan"
+    }
+  ],
+  "comments": [
+    {
+      "id": 2,
+      "body": "Modificando el JSON",
+      "postId": 2
+
+    }
+  ]
+
+}

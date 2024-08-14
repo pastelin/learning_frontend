@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tablas</title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+	</head>
+	<body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <!-- Colores -->
+                    <!-- Tenemos variantes disponibles para toda la tabla, toda una fila o una celda -->
+                    <!-- 
+                        .table-primary
+                        .table-secondary
+                        .table-success
+                        .table-danger
+                        .table-warning
+                        .table-info
+
+                        .table-light
+                        .table-dark
+                     -->
+
+                     <!-- Clases de tablas -->
+                     <!-- Estas clases tambien estan disponibles para los diferentes colores -->
+                     <!-- 
+                        .table-striped - Colorea en formato zebra para mejor lectura
+                        .table-hover    - Colore las filas sobre las que pasmos el cursor
+                        .table-bordered - Agrega bordes a la tabla
+                        .table-danger   - Colorea el borde
+                        .table-borderless - Quita los bordes, incluso de las filas
+                        .table-sm - Hace una tabla mas compacta quitandoles padding a las celdas
+                      -->
+
+                      <!-- Tabla responsiva -->
+                      <!-- Podemos encerrar la tabla en un div con la clase .table-responsive para hacerla responsiva -->
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm">
+                            <caption>Lista de amigos</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Pais</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-dark">
+                                    <td>Juan</td>
+                                    <td class="table-active">24</td>
+                                    <td>Mexico</td>
+                                </tr>
+                                <tr>
+                                    <td>Alejandro</td>
+                                    <td>34</td>
+                                    <td>España</td>
+                                </tr>
+                                <tr>
+                                    <td>Cesar</td>
+                                    <td>40</td>
+                                    <td>Colombia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<script src="../js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

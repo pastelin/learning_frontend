@@ -1,0 +1,177 @@
+<!doctype HTML>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Ejercicio dia 7</title>
+  </head>
+
+  <body>
+    <component-father></component-father>    
+
+    <dom-module id="component-father">
+      <template>
+	<style>
+	  :host{
+	    display: block;
+	    background-color: cyan;
+	    width: 40%;
+	    text-align: center;
+	    margin: auto;
+	    padding: 10px;
+	    height: 500px;
+	  }
+	</style>
+	<h2>Nested Components</h2>
+	<component-add pelicula-add="{{pelicula}}"></component-add><br>
+	<component-update pelicula-update="{{pelicula}}" item="{{item}}"></component-update><br>
+	<component-btn pelicula-btn="{{pelicula}}" item="{{item}}"></component-btn>
+      </template>
+      <script>
+	class ComponentFather extends Polymer.Element{
+	  static get is(){ return "component-father" }
+	  static get properties(){ 
+	    return{
+	      
+	      pelicula: {
+		type: Array, value: ['It','Avengers'], notify: true
+	      }, 
+	      item: {type: String, notify: true}
+	    }
+	  }
+	}
+	customElements.define(ComponentFather.is, ComponentFather);
+       </script>
+    </dom-module>
+ 
+    <!--Agrega una nueva película al array-->
+    <dom-module id="component-add">
+      <template>
+	<style>
+	  :host{
+	    display: block;
+	    border: 1px solid yellow;
+	    margin: 10px;
+	    padding: 10px;
+	  }
+	  :host button{
+	    border: none;
+	    border-radius: 8px; 
+	    width: 15%;
+	    padding: 4px;
+	    background-color: yellow;
+	  }
+	</style>
+	<div>
+	  <input type="text" value="{{peliculaNew::input}}"/> 
+	  <button on-click="agregarPelicula">Add</button>
+	</div>
+      </template>
+      <script>
+	class ComponentAdd extends Polymer.Element{
+	  static get is(){ return "component-add" }
+	  static get properties() {
+	    return{
+	      peliculaNew:{ type: String},
+	      peliculaAdd:{ type: Array , notify: true }
+	    }
+	  }
+	  agregarPelicula(e){
+	    let pelicula = this.peliculaNew;
+	    this.push('peliculaAdd', pelicula);
+	    console.log(this.peliculaAdd)
+	  }
+ 	}
+	customElements.define(ComponentAdd.is, ComponentAdd);
+      </script>
+    </dom-module>
+
+    <dom-module id="component-btn">
+      <template>
+	<style>
+	  :host{
+	    display: block;
+	    border: 1px solid red;
+	    padding: 10px;
+	    margin: 10px;
+	    height: 200px;
+	    overflow-x:auto;
+	  }
+	  :host button{
+	    border: none;
+	    margin: 1px;
+	    border-radius: 5px;
+	  }
+	  :host .remove{
+	    width: 20%;
+	  }
+	  :host .texto{
+	    width: 40%;
+	  }
+	</style>
+	<template is="dom-repeat" items="{{peliculaBtn}}">
+	  <div class="cont">
+	    <button class="remove" on-click="eliminarPelicula">Remove</button><button class="texto" on-click="mostrar">{{item}}</button><br>
+	  </div>
+	</template>
+      </template>
+      <script>
+	class ComponentBtn extends Polymer.Element{
+	  static get is() { return "component-btn" }
+	  static get properties() { 
+	    return{
+	      item: { type: String, notify: true},
+	      peliculaBtn: { type: Array, notify: true }
+	      
+	    }
+	  }
+	  eliminarPelicula(e){
+	    let i = e.model.index;
+	    this.splice('peliculaBtn', i, 1);
+	  }
+	  mostrar(e){
+	    this.item = e.model.item;
+	    let id = e.model.index;
+	    let it = this.item;
+	    console.log(this.item)
+	    this.set('peliculaBtn[id]',it);
+	  }
+	}
+	customElements.define(ComponentBtn.is, ComponentBtn);
+      </script>
+    </dom-module>
+
+    <dom-module id="component-update">
+      <template>
+	<style>
+	  :host .cont{
+	    display: block;
+	    border: 1px solid blue;
+	    padding: 10px;
+	    margin: 10px;
+	  }
+	</style>
+
+	<div class="cont">
+	  <input type="text" value={{item::input}} />
+	</div>
+      </template>
+      <script>
+	class ComponentUpdate extends Polymer.Element{
+	  static get is(){ return "component-update" }
+	  static get properties(){
+	    return {
+	      item: { type: String, notify: true }	      
+	    }
+	  }
+
+	}
+	customElements.define(ComponentUpdate.is, ComponentUpdate);
+
+      </script>
+    </dom-module>
+
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./component-cart.html">
+<link rel="import" href="./component-products.html">
+<dom-module id="component-carrito-app">
+	<template>
+		<style>
+			:host {
+				display: block;
+				background-color: cyan;
+				width: 60%;
+				margin: auto;
+			}
+
+			:host h2 {
+				text-align: center;
+				margin: 20px;
+				padding: 10px;
+			}
+		</style>
+		<h2>Polymer Store</h2>
+		<component-cart estados="{{estados}}" totales="{{totales}}" obj-ap="{{objAp}}" obj-or="{{objOr}}"
+			obj-ra="{{objRa}}">
+		</component-cart>
+
+		<component-products estados="{{estados}}" totales="{{totales}}" obj-ap="{{objAp}}" obj-or="{{objOr}}"
+			obj-ra="{{objRa}}">
+		</component-products>
+	</template>
+
+	<script>
+		class ComponentCarritoApp extends Polymer.Element {
+			static get is() { return 'component-carrito-app'; }
+			static get properties() {
+				return {
+					objAp: { type: Object },
+					objOr: { type: Object },
+					objRa: { type: Object },
+					totales: Object,
+					estados: Object
+				};
+			}
+		}
+
+		window.customElements.define(ComponentCarritoApp.is, ComponentCarritoApp);
+	</script>
+</dom-module>

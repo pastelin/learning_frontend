@@ -1,0 +1,6 @@
+{
+  "name": "component-carrito",
+  "short_name": "component-carrito",
+  "start_url": "/",
+  "display": "standalone"
+}

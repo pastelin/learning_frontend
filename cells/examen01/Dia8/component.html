@@ -1,0 +1,113 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Mi primer componente</title>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+
+    <link rel="import" href="polymer/polymer-element.html">
+
+  </head>
+
+  <body>
+    
+    <polymer-element></polymer-element>
+    
+    <dom-module id="polymer-element">
+      <template>
+	<style>
+	  
+        </style>
+	<h1>Wellcome</h1>
+	<div>Uno<input type="text" value="{{uno::input}}"></div>	
+	<div>Dos<input type="text" value="{{dos::input}}"></div>
+	<div>Tres<input type="text" value="{{tres::input}}"></div>
+	<div><button on-click="add">Add</button></div>
+	<div>[[cuatro]]</div>
+	<div><button on-click="cambiarNombre">Cambiar Nombre</button>[[cinco.personales.name]]</div>
+	<div><button on-click="cambiarEdad">Cambiar Edad</button>[[cinco.personales.age]]</div>
+	<div><button on-click="cambiarCalle">Cambiar Calle</button>[[cinco.direccion.calle]]</div>
+	<div><button on-click="cambiarNumero">Cambiar Numero</button>[[cinco.direccion.numero]]</div>
+      </template>
+      <script>
+	class PolymerElement extends Polymer.Element{
+	  static get is() { return "polymer-element" }
+	  static get observers(){
+	    return [
+	      'cambiarValor2(uno, dos, tres)',
+	      'cambiarValor3(cuatro.*)',
+	      'cambiarValor4(cinco.personale.*)',
+	      'cambiarValor5(cinco.direccion.calle)'
+	    ]
+
+	  }
+	  static get properties(){
+	    return {
+	      uno: { type: String, observer: 'cambiarValor' },
+	      dos: String,
+	      tres: String,
+	      cuatro:{type: Array, value:[]},
+	      cinco:{ type: Object,
+	        value: {
+		  personales:{name:'Ann', age: 20},
+	 	  direccion:{
+		    calle: 'Madero',
+		    numero: 19
+		  }
+	  	}
+	      } 
+	    }
+ 	  }
+	  add(){
+	    this.push('cuatro', 'x');
+	  }
+	  cambiarValor(a, b){
+	    console.log(a, b);
+	  }
+	  cambiarValor2(a,b,c){
+	    console.log('cambiarValor2', a,b,c);
+	  }
+	  cambiarValor3(a){
+	    console.log('cambiarValor3', a);
+	  }
+	  cambiarValor4(a){
+	    console.log('cambiarValor4', a);
+	  }
+	  cambiarValor5(a){
+	    console.log('cambiarValor5', a);
+
+	  }
+	
+	  cambiarNombre(){
+	    this.set('cinco.personales.name', 'Mary');
+	  }
+	  cambiarEdad(){ 
+	      this.set('cinco.personales.age', 19);
+	  }
+	  cambiarCalle(){
+	    this.set('cinco.direccion.calle', 'Roma');
+	  }
+	  cambiarNumero(){
+	    this.set('cinco.direccion.numero', 10)
+	  }
+	  
+	  
+        }
+	customElements.define(PolymerElement.is, PolymerElement);
+	
+      </script>
+ 	
+
+
+    </dom-module>
+
+
+
+
+  </body>
+
+
+
+</html>

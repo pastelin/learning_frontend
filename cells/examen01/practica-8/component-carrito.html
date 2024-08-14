@@ -1,0 +1,307 @@
+<!doctype HTML>
+
+<html>
+
+<head>
+	<base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+	<script src="webcomponentsjs/webcomponents-loader.js"></script>
+	<link rel="import" href="iron-ajax/iron-ajax.html">
+	<link rel="import" href="polymer/polymer-element.html">
+	<title>Componente carrito</title>
+</head>
+
+<body>
+	<component-father></component-father>
+	<dom-module id="component-father">
+		<template>
+			<style>
+				:host {
+					display: block;
+					background-color: cyan;
+					width: 60%;
+					margin: auto;
+				}
+
+				:host h2 {
+					text-align: center;
+					margin: 20px;
+					padding: 10px;
+				}
+			</style>
+			<h2>Polymer Store</h2>
+			<component-cart estados="{{estados}}" totales="{{totales}}" obj-ap="{{objAp}}" obj-or="{{objOr}}" obj-ra="{{objRa}}" >
+			</component-cart>
+			<component-products estados="{{estados}}" totales="{{totales}}" obj-ap="{{objAp}}" obj-or="{{objOr}}" obj-ra="{{objRa}}" >
+			</component-products>
+		</template>
+		<script>
+			class ComponentFather extends Polymer.Element {
+				static get is() { return "component-father" }
+				static get properties() {
+					return {
+						objAp: { type: Object },
+						objOr: { type: Object },						
+						objRa: { type: Object },						
+						totales: Object,
+						estados: Object
+					}
+				}
+			}
+			customElements.define(ComponentFather.is, ComponentFather);
+		</script>
+	</dom-module>
+
+
+	<dom-module id="component-cart">
+		<template>
+			<style>
+				:host {
+					display: block;
+					width: 90%;
+					margin: auto;
+				}
+
+				:host .cont {
+					display: inline-block;
+					width: 12%;
+
+					margin: 3px;
+					text-align: center;
+				}
+			</style>
+			<h3>Cart</h3>
+			<div>
+				<div>
+					<span class="cont">Product</span>
+					<span class="cont">Price</span>
+					<span class="cont">Units</span>
+					<span class="cont">Subtotal</span>
+				</div>
+
+				<template is="dom-if" if="{{estados.estadoAp}}">
+					<div>
+						<span class="cont">[[objAp.name]]</span>
+						<span class="cont">[[objAp.price]]</span>
+						<span class="cont">{{objAp.units}}</span>
+						<span class="cont">[[totales.subtotalAp]]</span>
+					</div>
+
+				</template>
+
+				<template is="dom-if" if="{{estados.estadoOr}}">
+					<div>
+						<span class="cont">[[objOr.name]]</span>
+						<span class="cont">[[objOr.price]]</span>
+						<span class="cont">{{objOr.units}}</span>
+						<span class="cont">[[totales.subtotalOr]]</span>
+					</div>
+				</template>
+
+				<template is="dom-if" if="{{estados.estadoRa}}">
+					<div>
+						<span class="cont">[[objRa.name]]</span>
+						<span class="cont">[[objRa.price]]</span>
+						<span class="cont">{{objRa.units}}</span>
+						<span class="cont">[[totales.subtotalRa]]</span>
+					</div>
+				</template>
+				<div>
+					<span class="cont">Total</span>
+					<span class="cont"></span>
+					<span class="cont">[[totales.totalUnits]]</span>
+					<span class="cont">[[totales.total]]</span>
+				</div>
+			</div>
+		</template>
+		<script>
+			class ComponentCart extends Polymer.Element {
+				static get is() { return "component-cart" }
+				static get properties() {
+					return {
+						objAp: { type: Object, value: { name: 'Pineaples', price: 10.5, units: 0 }, notify: true },
+						objOr: { type: Object, value: { name: 'Oranges', price: 20.5, units: 0 }, notify: true },
+						objRa: { type: Object, value: { name: 'Raspberries', price: 21.5, units: 0 }, notify: true },
+						totales: { type: Object, value: { subtotalAp: 0, subtotalOr: 0, subtotalRa: 0, totalUnits: 0, total: 0}, notify: true },
+						estados: {
+							type: Object,
+							value: { estadoAP: false, estadoOr: false, estadoRa: false }, notify: true
+						}
+					}
+				}
+			}
+			customElements.define(ComponentCart.is, ComponentCart);
+
+		</script>
+	</dom-module>
+
+
+	<dom-module id="component-products">
+		<template>
+			<style>
+				:host {
+					display: block;
+					width: 90%;
+					margin: auto;
+					padding: 10px;
+				}
+
+				:host .caja1 {
+					display: inline-block;
+					width: 30%;
+					text-align: center;
+					border: 1px solid black;
+					margin: 4px;
+				}
+
+				:host .caja3 {
+					display: inline-block;
+					width: 30%;
+					text-align: center;
+					border: 1px solid black;
+					margin: 4px;
+				}
+
+				:host .caja2 {
+					display: inline-block;
+					width: 30%;
+					text-align: center;
+					border: 1px solid black;
+					margin: 4px;
+				}
+			</style>
+			<h3>Products</h3>
+			<div>
+				<div class="caja1">
+					<h4>Pineaples</h4>
+					<p>Price: 10.5</p>
+					<img src="piña.png" alt="Es una piña">
+					<p>Units: [[indexAp]]</p>
+					<button on-click="moreAp"> + </button> <button on-click="lessAp"> - </button>
+				</div>
+				<div class="caja2">
+					<h4>Oranges</h4>
+					<p>Price: 20.5</p>
+					<img src="./orange.png" alt="Es una naranja">
+					<p>Units: [[indexOr]]</p>
+					<button on-click="moreOr"> + </button> <button on-click="lessOr"> - </button>
+				</div>
+				<div class="caja3">
+					<h4>Raspberries</h4>
+					<p>Price: 21.5</p>
+					<img src="./rasp.png" alt="rasp">
+					<p>Units: [[indexRa]]</p>
+					<button on-click="moreRa"> + </button> <button on-click="lessRa"> - </button>
+				</div>
+			</div>
+		</template>
+		<script>
+			class ComponentProducts extends Polymer.Element {
+				static get is() { return "component-products" }
+				static get observers() {
+					return [
+						'cambiarTotal(totales.subtotalAp, totales.subtotalOr, totales.subtotalRa)',
+						'cambiarUnits(objAp.units, objOr.units, objRa.units)'
+					]
+				}
+				static get properties() {
+					return {
+						totales: { type: Number, notify: true },
+						objAp: { type: Object, notify: true },
+						indexAp: { type: Number, value: 10 },						
+						objOr: { type: Object, notify: true },
+						indexOr: { type: Number, value: 19 },						
+						objRa: { type: Object, notify: true },
+						indexRa: { type: Number, value: 30 },
+						estados: { type: Object, notify: true }
+					}
+				}
+				cambiarUnits(a,b,c){
+					let suma = a +b +c;
+					this.set('totales.totalUnits', suma);
+				}
+
+				// observer para cambiar los valores de total
+				cambiarTotal(a, b, c) {
+					let suma = a + b + c;
+					this.set('totales.total', suma);
+				}
+				// Métodos para los botones dePineaples
+				moreAp(e) {
+					if (this.indexAp > 0) {
+						this.indexAp = this.indexAp - 1;
+						let unit = this.objAp.units + 1;
+						this.set('objAp.units', unit);
+						let acum = this.totales.subtotalAp + this.objAp.price;
+						this.set('totales.subtotalAp', acum);
+						this.set('estados.estadoAp', true);
+						console.log(this.estados.estadoAp)
+					}
+				}
+				lessAp(e) {
+					if (this.indexAp < 10) {
+						this.indexAp = this.indexAp + 1;
+						let unit = this.objAp.units - 1;
+						this.set('objAp.units', unit);
+						let acum = this.totales.subtotalAp - this.objAp.price;
+						this.set('totales.subtotalAp', acum);
+					}
+					if (this.objAp.units == 0) {
+						this.set('estados.estadoAp', false);
+					}
+				}
+				// Métodos para los botones de Oranges
+				moreOr(e) {
+					if (this.indexOr > 0) {
+						this.indexOr = this.indexOr - 1;
+						let unit = this.objOr.units + 1;
+						this.set('objOr.units', unit);
+						let acum = this.totales.subtotalOr + this.objOr.price;
+						this.set('totales.subtotalOr', acum);
+						this.set('estados.estadoOr', true);
+						console.log()
+					}
+				}
+				lessOr(e) {
+					if (this.indexOr < 19) {
+						this.indexOr = this.indexOr + 1;
+						let unit = this.objOr.units - 1;
+						this.set('objOr.units', unit);
+						let acum = this.totales.subtotalOr - this.objOr.price;
+						this.set('totales.subtotalOr', acum);
+
+					}
+					if (this.objOr.units == 0) {
+						this.set('estados.estadoOr', false);
+					}
+				}
+				// Métodos para los botones de Raspberries
+				moreRa(e) {
+					if (this.indexRa > 0) {
+						this.indexRa = this.indexRa - 1;
+						let unit = this.objRa.units + 1;
+						this.set('objRa.units', unit);
+						let acum = this.totales.subtotalRa + this.objRa.price;
+						this.set('totales.subtotalRa', acum);
+						this.set('estados.estadoRa', true);
+						console.log()
+					}
+				}
+				lessRa(e) {
+					if (this.indexRa < 30) {
+						this.indexRa = this.indexRa + 1;
+						let unit = this.objRa.units - 1;
+						this.set('objRa.units', unit);
+						let acum = this.totales.subtotalRa - this.objRa.price;
+						this.set('totales.subtotalRa', acum);
+					}
+					if (this.objRa.units == 0) {
+						this.set('estados.estadoRa', false);
+					}
+				}
+			}
+			customElements.define(ComponentProducts.is, ComponentProducts);
+		</script>
+	</dom-module>
+</body>
+
+</html>

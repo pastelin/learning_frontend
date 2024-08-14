@@ -1,0 +1,81 @@
+
+<dom-module id="component-cart">
+    <template>
+        <style>
+            :host {
+                display: block;
+                width: 90%;
+                margin: auto;
+            }
+
+            :host .cont {
+                display: inline-block;
+                width: 12%;
+
+                margin: 3px;
+                text-align: center;
+            }
+        </style>
+        <h3>Cart</h3>
+        <div>
+            <div>
+                <span class="cont">Product</span>
+                <span class="cont">Price</span>
+                <span class="cont">Units</span>
+                <span class="cont">Subtotal</span>
+            </div>
+
+            <template is="dom-if" if="{{estados.estadoAp}}">
+                <div>
+                    <span class="cont">[[objAp.name]]</span>
+                    <span class="cont">[[objAp.price]]</span>
+                    <span class="cont">{{objAp.units}}</span>
+                    <span class="cont">[[totales.subtotalAp]]</span>
+                </div>
+
+            </template>
+            <template is="dom-if" if="{{estados.estadoOr}}">
+                <div>
+                    <span class="cont">[[objOr.name]]</span>
+                    <span class="cont">[[objOr.price]]</span>
+                    <span class="cont">{{objOr.units}}</span>
+                    <span class="cont">[[totales.subtotalOr]]</span>
+                </div>
+            </template>
+
+            <template is="dom-if" if="{{estados.estadoRa}}">
+                <div>
+                    <span class="cont">[[objRa.name]]</span>
+                    <span class="cont">[[objRa.price]]</span>
+                    <span class="cont">{{objRa.units}}</span>
+                    <span class="cont">[[totales.subtotalRa]]</span>
+                </div>
+            </template>
+            <div>
+                <span class="cont">Total</span>
+                <span class="cont"></span>
+                <span class="cont">[[totales.totalUnits]]</span>
+                <span class="cont">[[totales.total]]</span>
+            </div>
+        </div>
+    </template>
+    <script>
+        class ComponentCart extends Polymer.Element {
+            static get is() { return "component-cart" }
+            static get properties() {
+                return {
+                    objAp: { type: Object, value: { name: 'Pineaples', price: 10.5, units: 0 }, notify: true },
+                    objOr: { type: Object, value: { name: 'Oranges', price: 20.5, units: 0 }, notify: true },
+                    objRa: { type: Object, value: { name: 'Raspberries', price: 21.5, units: 0 }, notify: true },
+                    totales: { type: Object, value: { subtotalAp: 0, subtotalOr: 0, subtotalRa: 0, totalUnits: 0, total: 0}, notify: true },
+                    estados: {
+                        type: Object,
+                        value: { estadoAp: false, estadoOr: false, estadoRa: false }, notify: true
+                    }
+                }
+            }
+        }
+        customElements.define(ComponentCart.is, ComponentCart);
+
+    </script>
+</dom-module>

@@ -1,0 +1,37 @@
+<dom-module id="component-company">
+    <template>
+        <style>
+            :host{
+                display: block;
+                width: 100%;
+                margin: 10px auto;
+            }
+            :host .title {
+                width: 40%;
+                display: inline-block;
+                text-align: left;
+                margin: 1px;
+                padding: 3px;
+            }
+
+            :host .cont {
+                display: inline-block;
+                width: 40%;
+            }
+        </style>
+        <h4>Company</h4>
+        <div><span class="title">Name</span><span class="cont"></span></div>
+        <div><span class="title">Catch phrase</span><span class="cont"></span></div>
+        <div><span class="title">Bs</span><span class="cont"></span></div>
+        
+    </template>
+    <script>
+        class ComponentCompany extends Polymer.Element{
+            static get is(){ return "component-company"}
+            static get properties(){ return {}}
+        }
+        customElements.define(ComponentCompany.is, ComponentCompany);
+    
+    </script>
+
+</dom-module>

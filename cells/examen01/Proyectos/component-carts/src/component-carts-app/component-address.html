@@ -1,0 +1,45 @@
+<dom-module id="component-address">
+    <template>
+        <style>
+            :host{
+                display: block;
+                width: 100%;
+                margin: 10px auto;
+            }
+            :host .title {
+                width: 40%;
+                display: inline-block;
+                text-align: left;
+                margin: 1px;
+                padding: 3px;
+            }
+
+            :host .cont {
+                display: inline-block;
+                width: 40%;
+            }
+        </style>
+        <div>
+            <h4>Address</h4>
+            <div><span class="title">Street</span><span class="cont"></span></div> 
+            <div><span class="title">Suite</span><span class="cont"></span></div> 
+            <div><span class="title">City</span><span class="cont"></span></div> 
+            <div><span class="title">Zipcode</span><span class="cont"></span></div> 
+            <h4>Geo</h4>
+            <div><span class="title">Lat</span><span class="cont"></span></div> 
+            <div><span class="title">Lgn</span><span class="cont"></span></div> 
+
+        </div>
+    </template>
+    
+    <script>
+        class ComponentAddress extends Polymer.Element{
+            static get is(){ return "component-address" }
+            static get properties() {
+                return {}
+            }
+        }
+        customElements.define(ComponentAddress.is, ComponentAddress);
+    
+    </script>    
+</dom-module>

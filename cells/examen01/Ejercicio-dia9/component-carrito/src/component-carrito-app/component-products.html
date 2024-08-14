@@ -1,0 +1,167 @@
+<dom-module id="component-products">
+    <template>
+        <style>
+            :host {
+                display: block;
+                width: 90%;
+                margin: auto;
+                padding: 10px;
+            }
+
+            :host .caja1 {
+                display: inline-block;
+                width: 30%;
+                text-align: center;
+                border: 1px solid black;
+                margin: 4px;
+            }
+
+            :host .caja3 {
+                display: inline-block;
+                width: 30%;
+                text-align: center;
+                border: 1px solid black;
+                margin: 4px;
+            }
+
+            :host .caja2 {
+                display: inline-block;
+                width: 30%;
+                text-align: center;
+                border: 1px solid black;
+                margin: 4px;
+            }
+        </style>
+        <h3>Products</h3>
+        <div>
+            <div class="caja1">
+                <h4>Pineaples</h4>
+                <p>Price: 10.5</p>
+                <img src="piña.png" alt="Es una piña" width="100" height="100">
+                <p>Units: [[indexAp]]</p>
+                <button on-click="moreAp"> + </button> <button on-click="lessAp"> - </button>
+            </div>
+            <div class="caja2">
+                <h4>Oranges</h4>
+                <p>Price: 20.5</p>
+                <img src="./orange.png" alt="Es una naranja" width="100" height="100">
+                <p>Units: [[indexOr]]</p>
+                <button on-click="moreOr"> + </button> <button on-click="lessOr"> - </button>
+            </div>
+            <div class="caja3">
+                <h4>Raspberries</h4>
+                <p>Price: 21.5</p>
+                <img src="./rasp.png" alt="rasp" width="100" height="100">
+                <p>Units: [[indexRa]]</p>
+                <button on-click="moreRa"> + </button> <button on-click="lessRa"> - </button>
+            </div>
+        </div>
+    </template>
+    <script>
+        class ComponentProducts extends Polymer.Element {
+            static get is() { return "component-products" }
+            static get observers() {
+                return [
+                    'cambiarTotal(totales.subtotalAp, totales.subtotalOr, totales.subtotalRa)',
+                    'cambiarUnits(objAp.units, objOr.units, objRa.units)'
+                ]
+            }
+            static get properties() {
+                return {
+                    totales: { type: Number, notify: true },
+                    objAp: { type: Object, notify: true },
+                    indexAp: { type: Number, value: 10 },						
+                    objOr: { type: Object, notify: true },
+                    indexOr: { type: Number, value: 19 },						
+                    objRa: { type: Object, notify: true },
+                    indexRa: { type: Number, value: 30 },
+                    estados: { type: Object, notify: true }
+                }
+            }
+            cambiarUnits(a,b,c){
+                let suma = a +b +c;
+                this.set('totales.totalUnits', suma);
+            }
+
+            // observer para cambiar los valores de total
+            cambiarTotal(a, b, c) {
+                let suma = a + b + c;
+                this.set('totales.total', suma);
+            }
+            // Métodos para los botones dePineaples
+            moreAp(e) {
+                if (this.indexAp > 0) {
+                    this.indexAp = this.indexAp - 1;
+                    let unit = this.objAp.units + 1;
+                    this.set('objAp.units', unit);
+                    let acum = this.totales.subtotalAp + this.objAp.price;
+                    this.set('totales.subtotalAp', acum);
+                    this.set('estados.estadoAp', true);
+                    console.log(typeof(this.estados.estadoAp))
+                }
+            }
+            lessAp(e) {
+                if (this.indexAp < 10) {
+                    this.indexAp = this.indexAp + 1;
+                    let unit = this.objAp.units - 1;
+                    this.set('objAp.units', unit);
+                    let acum = this.totales.subtotalAp - this.objAp.price;
+                    this.set('totales.subtotalAp', acum);
+                }
+                if (this.objAp.units == 0) {
+                    this.set('estados.estadoAp', false);
+                }
+            }
+            // Métodos para los botones de Oranges
+            moreOr(e) {
+                if (this.indexOr > 0) {
+                    this.indexOr = this.indexOr - 1;
+                    let unit = this.objOr.units + 1;
+                    this.set('objOr.units', unit);
+                    let acum = this.totales.subtotalOr + this.objOr.price;
+                    this.set('totales.subtotalOr', acum);
+                    this.set('estados.estadoOr', true);
+                    console.log()
+                }
+            }
+            lessOr(e) {
+                if (this.indexOr < 19) {
+                    this.indexOr = this.indexOr + 1;
+                    let unit = this.objOr.units - 1;
+                    this.set('objOr.units', unit);
+                    let acum = this.totales.subtotalOr - this.objOr.price;
+                    this.set('totales.subtotalOr', acum);
+
+                }
+                if (this.objOr.units == 0) {
+                    this.set('estados.estadoOr', false);
+                }
+            }
+            // Métodos para los botones de Raspberries
+            moreRa(e) {
+                if (this.indexRa > 0) {
+                    this.indexRa = this.indexRa - 1;
+                    let unit = this.objRa.units + 1;
+                    this.set('objRa.units', unit);
+                    let acum = this.totales.subtotalRa + this.objRa.price;
+                    this.set('totales.subtotalRa', acum);
+                    this.set('estados.estadoRa', true);
+                    console.log()
+                }
+            }
+            lessRa(e) {
+                if (this.indexRa < 30) {
+                    this.indexRa = this.indexRa + 1;
+                    let unit = this.objRa.units - 1;
+                    this.set('objRa.units', unit);
+                    let acum = this.totales.subtotalRa - this.objRa.price;
+                    this.set('totales.subtotalRa', acum);
+                }
+                if (this.objRa.units == 0) {
+                    this.set('estados.estadoRa', false);
+                }
+            }
+        }
+        customElements.define(ComponentProducts.is, ComponentProducts);
+    </script>
+</dom-module>

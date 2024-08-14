@@ -1,0 +1,49 @@
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+    <title>Componente Automóvil</title>
+  </head>
+
+  <body>
+    <component-car><component-car>
+	
+    <dom-module id="component-car">
+      <template>
+	<style></style>
+	<div class="container">
+	  <h2>Componente automóvil</h2>
+	  <div>Marca: [[marca]]</div>
+	  <div>Número de cilindros: [[noCilindros.0]]</div>
+	  <div>Número de puertas: [[noPuertas]]</div>
+	  <div><input type="text" value={{noPuertas::input}} /></div>
+        </div>
+      </template>
+      <script>
+	class ComponentCar extends Polymer.Element{
+	  static get is(){ return "component-car" }
+	  static get properties(){
+	    return {
+	      marca: {
+		type: String, value: 'BMW'
+	      },
+	      noCilindros: {
+		type: Array, value: [2, 4, 8, 16]
+	      }, 
+	      noPuertas: {
+		type: Number, value: 2
+	      }   
+	    }
+	  }
+	}
+	customElements.define(ComponentCar.is, ComponentCar);
+      </script>
+
+    </dom-module>
+
+  </body>
+</html>

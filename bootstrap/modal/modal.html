@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modal</title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="containes">
+			<div class="row mt-5">
+				<div class="col">
+					<button
+						class="btn btn-primary btn-lg"
+						data-bs-toggle="modal"
+						data-bs-target="#mi-modal-1"
+					>
+						Abrir Modal 1
+					</button>
+
+					<div
+						class="modal fade"
+						id="mi-modal-1"
+						tabindex="-1"
+						aria-hidden="true"
+						aria-labelledby="label-modal-1"
+                        data-bs-backdrop="static"
+					>
+						<!-- Caja de dialogo -->
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+							<!-- Contenido de la caja -->
+							<div class="modal-content">
+								<!-- Encabezado de la caja -->
+								<div class="modal-header">
+									<h5 class="modal-title">Titulo del modal</h5>
+									<button
+										class="btn-close"
+										data-bs-dismiss="modal"
+										aria-label="Cerrar"
+									></button>
+								</div>
+
+								<!-- Cuerpo de la caja -->
+								<div class="modal-body">
+                                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate vero natus vel minima sed architecto eius quis illum eligendi quia.</div>
+                                </div>
+
+								<!-- Pie de pagina de la pagina -->
+								<div class="modal-footer">
+									<button
+										type="button"
+										class="btn btn-light"
+										data-bs-dismiss="modal"
+									>
+										Cancelar
+									</button>
+									<button type="button" class="btn btn-primary">Acepto</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col">
+					<button
+						class="btn btn-primary btn-lg"
+						data-bs-toggle="modal"
+						data-bs-target="#mi-modal-2"
+					>
+						Abrir Modal 2
+					</button>
+
+					<div
+						class="modal fade"
+						id="mi-modal-2"
+						tabindex="-1"
+						aria-hidden="true"
+						aria-labelledby="label-modal-2"
+                        data-bs-backdrop="static"
+					>
+						<!-- Caja de dialogo -->
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+							<!-- Contenido de la caja -->
+							<div class="modal-content">
+								<!-- Encabezado de la caja -->
+								<div class="modal-header">
+									<h5 class="modal-title">Titulo del modal</h5>
+									<button
+										class="btn-close"
+										data-bs-dismiss="modal"
+										aria-label="Cerrar"
+									></button>
+								</div>
+
+								<!-- Cuerpo de la caja -->
+								<div class="modal-body">
+									<h1>Hola Mundo</h1>
+								</div>
+
+								<!-- Pie de pagina de la pagina -->
+								<div class="modal-footer">
+									<button
+										type="button"
+										class="btn btn-light"
+										data-bs-dismiss="modal"
+									>
+										Cancelar
+									</button>
+									<button type="button" class="btn btn-primary">Acepto</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="../js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

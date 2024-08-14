@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Encabezado</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, sapiente.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Clases que podemos utilizar 
+            .card                   Establemos que trabajaremos con una tarjeta (card)
+                .card-body          Establecemos cual sera el contenedor del contenido
+                    .card-title     Establecemos un texto como titulo de la card
+                    .card-subtitle  Establecemos un subtitulo para la card
+                    .card-text      Establecemos un tesxto de la card
+                    .card-link      Establecemos un enlace como boton de la card
+                .card-img-top       Establecemos una imagen para la card de la parte superior
+                .card-img-bottom    Establecemos una imagen para la card en la parte inferior
+            -->
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top" src="../img/2.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo</h5>
+                        <h6 class="card-subtitle text-muted mb-2">Subtitulo</h6>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, beatae.</p>
+                        <a href="#" class="btn btn-outline-primary">Boton</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo</h5>
+                        <h6 class="card-subtitle text-muted mb-2">Subtitulo</h6>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, beatae.</p>
+                        <a href="#" class="btn btn-outline-primary">Boton</a>
+                    </div>
+                    <img class="card-img-bottom" src="../img/2.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top" src="../img/2.jpg" alt="">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Elemento #1</li>
+                        <li class="list-group-item">Elemento #2</li>
+                        <li class="list-group-item">Elemento #3</li>
+                    </ul>
+                    <div class="card-body">
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, beatae.</p>
+                        <a href="#" class="btn btn-outline-primary">Boton</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row my-3">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">Encabezados</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tutulo</h5>
+                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, corrupti.</p>
+                    </div>
+                    <div class="card-footer">Pie de pagina</div>
+                </div>
+            </div>
+            
+            <div class="col-6">
+                <div class="card text-center">
+                    <div class="card-header">Cita</div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magni sed officiis temporibus nisi explicabo distinctio laborum eveniet doloribus qui.</p>
+                            <footer class="blockquote-footer">Lorem ipsum dolor sit amet.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

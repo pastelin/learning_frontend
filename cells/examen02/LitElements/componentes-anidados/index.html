@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes anidados</title>
+  <style>
+    body {
+      background: #f8f8f8;
+    }
+    .container {
+      width: 400px;
+      margin: 20px auto;
+      text-align: center;
+      color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="container">
+      <first-component prop1="First Component">
+        <p slot="padre"><strong>Uso de slot</strong></p>
+      </first-component>
+    </div>
+  </section>
+  <script src="./first-component.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype HTML>
+<html>
+
+<head>
+	<base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+	<script src="webcomponentsjs/webcomponents-loader.js"></script>
+	<link rel="import" href="iron-ajax/iron-ajax.html">
+	<link rel="import" href="polymer/polymer-element.html">
+	<title>Component user</title>
+</head>
+
+<body>
+	<component-user></component-user>
+
+	<dom-module id="component-user">
+		<template>
+			<style>
+				:host {
+					display: block;
+					width: 50%;
+					min-width: 430px;
+					margin-left: 25%;
+					background-color: cyan;
+					text-align: center;
+					position: absolute;
+					bottom: 30px;
+					top: 10px;
+					overflow-x: auto;
+				}
+
+				:host .title {
+					width: 40%;
+					display: inline-block;
+					border: 1px solid yellow;
+					padding: 5px;
+					margin: auto;
+				}
+
+				:host .cont {
+					display: inline-block;
+					border: 1px solid black;
+					width: 40%;
+					margin: 10px;
+					padding: 5px;
+				}
+			</style>
+			<div>
+				<div></div>
+				<div><span class="title">Username:</span><span class="cont">[[userActual.username]]</span></div>
+				<div><span class="title">Email:</span><span class="cont"> [[userActual.email]]</span></div>
+				<component-address address-actual="{{userActual}}"></component-address>
+				<div><span class="title">Phone:</span><span class="cont"> [[userActual.phone]]</span></div>
+				<div><span class="title">Website:</span><span class="cont"> [[userActual.website]]</span></div>
+				<component-company company-actual="{{userActual}}"></component-company>
+
+				<button on-click="decremento">
+					</button> <button on-click="obtenerUsers">>
+				</button>
+			</div>
+		</template>
+		<script>
+			class ComponentUser extends Polymer.Element {
+				static get is() { return "component-user" }
+				static get properties() {
+					return {
+						users: { type: Array, value: [] },
+						userActual: { type: Object, value: {} },
+						index: { type: Number, value: 0 },
+						posts: { type: Array, value: [] }
+					}
+				}
+
+				async obtenerUsers() {
+					let i = this.index;
+
+					let response = await fetch('https://jsonplaceholder.typicode.com/users');
+					let objeto = await response.json();
+					this.push('users', objeto);
+					if (this.index < 10) {
+						let obj = this.users.map(data => data[i]);
+						let obj2 = obj[0];
+						this.set('userActual', obj2);
+						this.index = i + 1;
+
+
+						let responsePosts = await fetch('https://jsonplaceholder.typicode.com/posts');
+						let objPosts = await responsePosts.json();
+						this.push('posts', objPosts);
+						console.log(this.posts)
+					}
+				}
+
+				decremento() {
+
+					if (this.index >= 1) {
+						this.index = this.index - 1;
+						let i = this.index;
+						let obj = this.users.map(data => data[i]);
+						let obj2 = obj[0];
+						this.set('userActual', obj2);
+						console.log(this.index)
+					}
+				}
+
+			}
+			customElements.define(ComponentUser.is, ComponentUser);
+
+		</script>
+	</dom-module>
+
+	<dom-module id="component-address">
+		<template>
+			<style>
+				:host {
+					display: block;
+					border: 1px solid pink;
+					width: 90%;
+					margin: 10px auto;
+				}
+
+				:host .title {
+					display: inline-block;
+					border: 1px solid yellow;
+					width: 40%;
+					margin: 5px;
+					padding: 5px;
+				}
+
+				:host .cont {
+					display: inline-block;
+					border: 1px solid black;
+					width: 40%;
+					padding: 5px;
+				}
+			</style>
+			<div>
+				<span>Address</span>
+				<div>
+					<div><span class="title">Street:</span><span class="cont">[[addressActual.address.street]]</span>
+					</div>
+					<div><span class="title">Suite:</span><span class="cont">[[addressActual.address.suite]]</span>
+					</div>
+					<div><span class="title">City:</span><span class="cont">[[addressActual.address.city]]</span></div>
+					<div><span class="title">Zipcode</span><span class="cont">[[addressActual.address.zipcode]]</span>
+					</div>
+					<div>Geo</div>
+					<div><span class="title">Lat:</span><span class="cont">[[addressActual.address.geo.lat]]</span>
+					</div>
+					<div><span class="title">Lgn:</span><span class="cont">[[addressActual.address.geo.lng]]</span>
+					</div>
+				</div>
+			</div>
+		</template>
+		<script>
+			class ComponentAddress extends Polymer.Element {
+				static get is() { return "component-address" }
+				static get properties() {
+					return {
+						addressActual: { type: Object }
+					}
+				}
+			}
+			customElements.define(ComponentAddress.is, ComponentAddress);
+		</script>
+	</dom-module>
+
+	<dom-module id="component-company">
+		<template>
+			<style>
+				:host {
+					display: block;
+					border: 1px solid gray;
+					margin: 10px auto;
+					width: 90%;
+				}
+
+				:host .title {
+					display: inline-block;
+					border: 1px solid yellow;
+					width: 40%;
+					margin: 5px;
+					padding: 5px;
+				}
+
+				:host .cont {
+					display: inline-block;
+					border: 1px solid black;
+					width: 40%;
+					padding: 5px;
+				}
+			</style>
+			<div>
+				Company
+				<div><span class="title">Name:</span><span class="cont">[[companyActual.company.name]]</span></div>
+				<div><span class="title">Catch phrase</span><span
+						class="cont">[[companyActual.company.catchPhrase]]</span></div>
+				<div><span class="title">Bs:</span><span class="cont">[[companyActual.company.bs]]</span> </div>
+			</div>
+
+		</template>
+		<script>
+			class ComponentCompany extends Polymer.Element {
+				static get is() { return "component-company" }
+				static get properties() {
+					return {
+						companyActual: { type: Object }
+					}
+				}
+			}
+			customElements.define(ComponentCompany.is, ComponentCompany);
+
+		</script>
+
+
+	</dom-module>
+
+</body>
+
+
+</html>

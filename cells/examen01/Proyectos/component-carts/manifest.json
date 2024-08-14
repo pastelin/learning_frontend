@@ -1,0 +1,6 @@
+{
+  "name": "component-carts",
+  "short_name": "component-carts",
+  "start_url": "/",
+  "display": "standalone"
+}

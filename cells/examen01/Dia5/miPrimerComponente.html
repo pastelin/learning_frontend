@@ -1,0 +1,80 @@
+<!doctype HTML>
+<html>
+  <head>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+	<link rel="import" href="/bower_components/polymer/polymer.html">
+    <title>Mi primer componente</title>
+  </head>
+
+  <body>
+    <h1>Wellcome</h1>
+    <primer-componente></primer-componente>
+    <dom-module id="primer-componente">
+      <template>
+		<style>
+		:host h2{text-align:center;}
+		:host .container{
+			box-sizing: border-box;
+			background-color:gray; 
+			min-width:30%;
+			max-width:40%; 
+			padding:1px;
+			margin: auto;
+			border-radius: 10px; 
+		}
+		:host .container div{
+			border:1px solid pink;
+			border-radius: 5px;
+			padding:2px;
+			margin:5px;
+			text-align: center;
+		}
+		:host .container input{
+			border-radius: 5px;
+			border: none;
+		}
+		</style>
+		<div class="container">
+		<h2>Objeto automóvil</h2>
+		<div>Marca: [[marca]]</div>
+		<div>Cilindros: [[cilindros.1]]</div>
+		<div>Modelo: [[versiones.a]]</div>
+		<div>Usa gas: [[usaGas]]</div>
+		<div>No. puertas: [[noPuertas]]</div>
+		<div><input type="text" value="{{noPuertas::input}}"></input></div>
+		</div>
+		</template>
+		<script>
+			class PrimerComponente extends Polymer.Element{
+				static get is() {return "primer-componente"}
+				static get properties(){
+					return {
+					noPuertas:{
+					type: Number, value: 4
+					},
+					marca:{
+					type: String, value: 'BMW'
+					}, 
+					cilindros:{
+					type: Array, value: [1,2,3,4]
+					},
+					versiones:{
+					type: Object, value: {a: 2, b : 3}
+					},
+					usaGas: {
+					type: Boolean, value: false
+					}
+					
+					}
+				}
+			}
+			customElements.define(PrimerComponente.is, PrimerComponente);
+		</script>
+	</dom-module>
+
+  </body>
+
+</html>

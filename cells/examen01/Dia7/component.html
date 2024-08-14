@@ -1,0 +1,91 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Mi primer componente</title>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+
+    <link rel="import" href="polymer/polymer-element.html">
+
+  </head>
+
+  <body>
+    <h1>Wellcome</h1>
+    <polymer-element></polymer-element>
+    
+    <dom-module id="polymer-element">
+      <template>
+	<style>
+	  :host{
+	    display:block;
+	    padding: 16px;
+	    margin: 8px;
+	    text-align: center;
+	    background-color: cyan; 
+	  }
+	
+        </style>
+     	<h2>Mi primer elemento [[name]]</h2>
+	<div>Name: <input type="text" value="{{name::input}}"></div>
+	<polymer-hijo padre-name={{name}}></polymer-hijo>
+      </template>
+      <script>
+	class PolymerElement extends Polymer.Element{
+	  static get is() { return "polymer-element" }
+	  static get properties(){
+	    return {
+	      name:{
+		type: String, value: 'Mary'
+	      }
+	    }
+ 	  }
+
+        }
+	customElements.define(PolymerElement.is, PolymerElement);
+      </script>
+    </dom-module>
+
+    <dom-module id="polymer-hijo">
+      <template>
+	<style>
+	  :host{
+	    display: block;
+	    padding: 16px;
+	    margin: 8px;
+	    background-color: gray;
+	    text-align: center;  
+	  }
+	</style>
+      	<h2>Soy el componente hijo[[name]]</h2>
+	<div><input type="text" value="{{name::input}}" /></div>
+	<h3>Y el nombre de mi papá es: [[padreName]]</h3>
+	<div><input type="text" value="{{padreName::input}}"></div>
+      </template>
+      <script>
+	class PolymerHijo extends Polymer.Element{
+    	  static get is() { return "polymer-hijo" }
+	  static get properties(){
+	    return{
+	      name: {
+	        type: String, value: 'Ann'
+	      },
+	      padreName: {
+		type: String, notify: true
+	      }
+	    }
+ 	  }
+	}
+	customElements.define(PolymerHijo.is, PolymerHijo);
+      </script>
+    </dom-module>
+
+
+
+
+  </body>
+
+
+
+</html>

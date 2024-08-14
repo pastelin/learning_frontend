@@ -1,0 +1,99 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Mi primer componente</title>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+
+    <link rel="import" href="polymer/polymer-element.html">
+
+  </head>
+
+  <body>
+    <h1 id="1">Wellcome</h1>
+    <polymer-element></polymer-element>
+    
+    <dom-module id="polymer-element">
+      <template>
+	<style>
+	  .orange{background-color: orange;}
+	  .green{background-color:green;}
+        </style>
+     	<h2>Mi primer elemento</h2>
+	<div class$="[[color]]"><span>Month: [[month]]</span>&nbsp;&nbsp;&nbsp;<span>Season:[[season]]</span></div> <br>
+	
+	  Ingrese el mes: <input type="text" id="mon"/>
+	  Ingrese la temporada: <input type="text" id="season"/>
+	  <button on-click="addMonth">Add</button><br>
+		
+	<template is="dom-repeat" items="{{months}}">
+	  <button on-click="cambiarMes">{{item.name}}</button><button on-click="removeMonth">x</button><br>  
+        </template>
+      </template>
+      <script>
+	class PolymerElement extends Polymer.Element{
+	  static get is() { return "polymer-element" }
+	  static get properties(){
+	    return {
+	      month:{
+		type: String, value: 'Da click'
+	      },
+	      season:{ type: String, value: 'Da click'},	      
+	      months:{
+	       	type: Array, 
+		value:[
+		  {name: 'Enero', season: 'Winter'},
+		  {name: 'Febrero', season: 'Winter'},
+		  {name: 'Marzo', season: 'Winter'},
+		  {name: 'Abril', season:'Spring'},
+		  {name: 'Mayo', season: 'Spring'},
+	  	  {name: 'Junio', season: 'Summer'},
+		  {name: 'Julio', season: 'Summer'},
+		  {name: 'Agosto', season: 'Summer'},
+	  	  {name: 'Septiembre', season: 'Fall'},
+		  {name: 'Octubre', season: 'Fall'}, 
+		  {name: 'Noviembre', season: 'Fall'},
+		  {name: 'Diciembre', season: 'Winter'}
+ 		]
+
+	      },
+	      color: { type: String, value: 'orange' }
+	    }
+ 	  }
+
+	  cambiarMes(event){
+	    let datos = event.model.item;
+	    this.month = datos.name;
+	    this.season = datos.season;
+	    
+	  }
+	  removeMonth(event){
+	    let id = event.model.index;		
+	    this.splice('months', id, 1);
+	    console.log(event)
+	  }
+	  addMonth(e){
+	    let ent = document.getElementsByTagName('button');
+	    console.log(e)
+	  }
+
+
+        }
+	customElements.define(PolymerElement.is, PolymerElement);
+	
+      </script>
+ 	
+
+
+    </dom-module>
+
+
+
+
+  </body>
+
+
+
+</html>
