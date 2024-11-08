@@ -29,6 +29,7 @@
     "sass": "^1.53.0"
   },
   "dependencies": {
+    "festival_musica": "file:",
     "gulp-terser-js": "^5.2.2"
   }
 }
