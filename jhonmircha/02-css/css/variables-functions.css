@@ -1,0 +1,77 @@
+/* 
+    * Las variables se definenen dentro de selectores
+    * El alcance es para todos los elementos hijos del selector donde se definio la variable
+
+    * La pseudoclase :root hace referencia a la etiqueta html pero con la diferencia de que tiene mas especifidad
+
+    * Funciones
+        * var() : invoca el valor de una variable y si no existe asigna un valor por defecto
+        * url() : invoca la ruta del archivo externo a cargar 
+        * calc() : ayuda a realizar calculo aritmeticos (usar espacio en blanco entre el operador y el operando)
+
+
+        Video : 3.49
+*/
+
+:root {
+    color: darkgreen;
+    --default-bg-color: skyblue;
+}
+
+html {
+    color: red;
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+.custom-props-1 {
+    --primary-color: gray;
+    --font-fize: 32px;
+    background-color: var(--primary-color);
+}
+
+.custom-props-2 {
+    background-color: var(--default-bg-color);
+    border: thin solid var(--border-color);
+    padding: 1rem;
+}
+
+.custom-props-3 {
+    font-size: var(--font-fize);
+}
+
+.title-props {
+    --primary-color: navy;
+    color: var(--primary-color, orange);
+    background-color: var(--default-bg-color);
+}
+
+.ch-10 {
+    --padding-size: 2ch;
+    --num-ch: 10ch;
+    background-color: var(--default-bg-color);
+    font-size: 2rem;
+    padding: 2ch;
+    width: calc(var(--num-ch) + var(--padding-size) * 2);
+}
+
+.min-max {
+    background-color: var(--default-bg-color);
+    margin-top: 1rem;
+    width: min(300px, 20vw, 20rem); /* Asigna el valor minimo del listado */
+    height: max(200px, 25vh  ); /* Asigna el valor maximo del listado */
+}
+
+h1 {
+    /* 
+        * El primer valor es el ideal
+        * El segundo valor es el crecimiento que tendra entre diferentes dimensiones
+        * El tercer valor es el valor maximo que puede tener
+    */
+    font-size: clamp(2rem, 1rem + 3vw, 3rem);
+}

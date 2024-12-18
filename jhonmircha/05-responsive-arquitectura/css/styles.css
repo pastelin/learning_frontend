@@ -1,0 +1,290 @@
+/*
+    * Indica que todos los selectores que inicien con la clase box le aplique los estilos
+*/
+
+[class^='box'] {
+	margin: 3rem auto;
+	background-color: orangered;
+}
+
+.box {
+	width: 300px;
+	height: 300px;
+}
+
+.box-flexible {
+	width: 50%;
+	height: 20vh;
+}
+
+.box-flexible-2 {
+	max-width: 960px;
+	min-width: 280px;
+	max-height: 480px;
+	min-height: 280px;
+}
+
+/* 
+    * las propiedades width y height tienen mayor jerarquía que max-width, por lo que siempre tendrán las propiedades 
+    * definidas en width y height omitiendo el resto
+*/
+.box-flexible-3 {
+	max-width: 960px;
+	min-width: 280px;
+	max-height: 480px;
+	min-height: 280px;
+	width: 300px;
+	height: 300px;
+}
+
+.box-flexible-4 {
+	max-width: 960px;
+	min-width: 280px;
+	max-height: 480px;
+	min-height: 280px;
+	width: 50%;
+	height: 20vh;
+}
+
+img,
+video,
+iframe {
+	max-width: 100%;
+	height: auto;
+}
+
+.responsive-media {
+	position: relative;
+	max-width: 100%;
+	height: 0;
+	/* 
+        * Formato widescreen 16:9
+        * 16 ---> 100%
+        * 9 ---> 56.25
+    */
+	padding-bottom: 56.25%;
+}
+
+.responsive-media > * {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.aspect-ratio-16-9 {
+	background-color: rebeccapurple;
+	aspect-ratio: 16/9;
+}
+.aspect-ratio-1-1 {
+	aspect-ratio: 1/1;
+}
+
+@media print {
+	@page {
+		size: A6 landscape;
+	}
+
+	body {
+		font-size: 10pt;
+		font-family: sans-serif;
+		background-color: #000;
+		color: greenyellow;
+	}
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: auto;
+		scroll-behavior: smooth;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		background-color: black;
+		color: teal;
+	}
+}
+
+@media screen and (prefers-color-scheme: light) {
+	html {
+		background-color: white;
+		color: rgb(0, 0, 139);
+	}
+}
+
+@media screen and (prefers-color-scheme: no-preference) {
+	html {
+		background-color: white;
+		color: rgb(139, 0, 0);
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		background-color: white;
+		color: rgba(0, 0, 0, 0.8);
+	}
+}
+
+/* 
+    * En Mobile First se usa min-width que significa lo mínimo, del valor dado hacia arriba
+    
+*/
+@media screen and (min-width: 480px) {
+	html {
+		background-color: lightpink;
+	}
+}
+
+/* 
+    * En Desktop First se usa max-width que significa lo máximo, del valor dado hacia abajo
+    
+*/
+@media screen and (max-width: 1024px) {
+	html {
+		background-color: lightgreen;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	html {
+		background-color: white;
+	}
+}
+
+@supports (grid-template-columns: subgrid) {
+	html {
+		background-color: black;
+		color: greenyellow;
+	}
+}
+
+@supports not (grid-template-columns: subgrid) {
+	html {
+		background-color: darkolivegreen;
+		color: white;
+	}
+}
+
+@supports (display: grid) and (grid-template-columns: subgrid) {
+	html {
+		background-color: darkslateblue;
+		color: lightseagreen;
+	}
+}
+
+@supports (display: grid) or (grid-template-columns: subgrid) {
+	html {
+		background-color: white;
+		color: black;
+	}
+}
+
+/* 
+    * Feature Queries
+*/
+
+.card {
+	border: thin solid #000;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 800px;
+	contain: layout inline-size style; /* Activa caracteristicas de container queries */
+}
+
+.card-image {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: 0 50%;
+}
+
+.card-content {
+	padding: 1rem;
+}
+
+@container (min-width: 600px) {
+	.card-container {
+		display: flex;
+	}
+
+	.card-container > * {
+		width: 50%;
+		flex-basis: 50%;
+	}
+}
+
+
+/*
+    * Fluid Design
+*/
+.fluid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.fluid-item {
+    border: thin solid gray;
+    padding: 1rem;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,21,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --step--2: clamp(0.9113rem, 0.8922rem + 0.0951vw, 0.96rem);
+  --step--1: clamp(1.0938rem, 1.0523rem + 0.2073vw, 1.2rem);
+  --step-0: clamp(1.3125rem, 1.2393rem + 0.3659vw, 1.5rem);
+  --step-1: clamp(1.575rem, 1.4579rem + 0.5854vw, 1.875rem);
+  --step-2: clamp(1.89rem, 1.7129rem + 0.8854vw, 2.3438rem);
+  --step-3: clamp(2.2681rem, 2.0098rem + 1.2915vw, 2.93rem);
+  --step-4: clamp(2.7219rem, 2.355rem + 1.8341vw, 3.6619rem);
+  --step-5: clamp(3.2656rem, 2.7537rem + 2.5598vw, 4.5775rem);
+}
+
+.step--2 {
+    font-size: var(--step--2);
+}
+
+.step--1 {
+    font-size: var(--step--1);
+}
+
+.step--0 {
+    font-size: var(--step--0);
+}
+
+.step-1 {
+    font-size: var(--step-1);
+}
+
+.step-2 {
+    font-size: var(--step-2);
+}
+
+.step-3 {
+    font-size: var(--step-3);
+}
+
+.step-4 {
+    font-size: var(--step-4);
+}
+
+.step-5 {
+    font-size: var(--step-5);
+}
+
+body {
+    /* 
+        * 14 = tamaño de letra más pequeño
+        * 18 = tamaño de letra más grande
+        * 300 = tamaño de viewport más pequeño
+        * 1400 = tamaño de viewport más grande
+    */
+    font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1400 - 300)));
+}
+
+.box-fluid {
+    width: clamp(400px, 60vw, 600px);
+    height: clamp(200px, 30vw, 300px);
+}

@@ -1,0 +1,43 @@
+.box {
+    background-color: black;
+    margin: 2rem auto;
+    width: 400px;
+    height: 400px;
+    border: thick solid red;
+}
+
+.border-radius {
+    border-radius: 2rem;
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    border-radius: 2rem 4rem;
+    border-radius: 2rem 4rem 0;
+    border-radius: 2rem 4rem 2rem 1rem;
+    border-radius: 2rem;
+}
+
+.border-radius2 {
+    /* Bordes elipticos, primer valor 2rem en eje X y 4rem en eje Y */
+    border-radius: 2rem / 4rem;
+    border-radius: 2rem 4rem / 4rem 8rem;
+}
+
+.border-radius3 {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
+
+/* Outline: es un borde externo pero este no afecta las dimensiones del contenedor, se podría ver como un aura */
+.outline {
+    color: white;
+    text-align: center;
+    outline-width: 5px;  /* Tiene el mismo compartamiento que outline: 5px; */
+    outline: 5px; /* Tiene el mismo compartamiento que outline-width: 5px; */
+    outline-style: dashed;
+    outline-color: chartreuse;
+    /* Distancia entre el outline con el borde externo, puede recibir valore negativos y positivos */
+    outline-offset: 3rem; /* Distancia que se toma del elemento para afuera del mismo */
+}

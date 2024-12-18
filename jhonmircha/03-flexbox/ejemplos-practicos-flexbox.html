@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ejemplos Practicos Flexbox</title>
+		<style>
+			*,
+			*::after,
+			*::before {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+			}
+
+			main {
+				flex-grow: 1;
+			}
+
+			.titulares {
+				padding: 1rem;
+				background-color: #222;
+				color: #eee;
+			}
+
+			.header {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+
+			.menu ul {
+				list-style-type: none;
+			}
+
+			.menu li a {
+				text-decoration: none;
+				color: white;
+			}
+
+			@media screen and (min-width: 1024px) {
+				.header {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+				}
+
+				.menu ul {
+					display: flex;
+				}
+
+				.menu li {
+					padding: 0.5rem;
+				}
+
+				.flex-container {
+					display: flex;
+					align-items: center;
+				}
+
+				.flex-item {
+					flex: 0 0 50%;
+				}
+
+				.flex-order-1 {
+					order: 1;
+				}
+
+				.flex-row-reverse {
+					flex-direction: row-reverse;
+				}
+			}
+
+			.hero-image {
+				background-image: url('img/01.jpg');
+				background-size: cover;
+				min-height: 100vh;
+				background-repeat: no-repeat;
+				color: #fff;
+			}
+
+			.hero-image div {
+				min-height: inherit;
+				background-color: rgba(0, 0, 0, 0.75);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+
+			.hero-image h1 {
+				font-size: 5vw;
+			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+
+			.flex-responsive-row {
+				display: flex;
+				flex-flow: row wrap;
+			}
+
+			.flex-responsive-row-item {
+				border: thin solid #f60;
+				/* 
+                    1. Factor de crecimiento, sobrante en pixeles entre el número de piezas totales
+                    2. Factor de reducción, valor de contenedero reducido entre el número de piezas totales
+                    3. Tamaño mínimo que tendrá cada columna
+                */
+				flex: 1 1 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="titulares header">
+			<div class="logo">Logo</div>
+
+			<nav class="menu">
+				<ul>
+					<li>
+						<a href="#">Sección 1</a>
+					</li>
+					<li>
+						<a href="#">Sección 2</a>
+					</li>
+					<li>
+						<a href="#">Sección 3</a>
+					</li>
+					<li>
+						<a href="#">Sección 4</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<article class="hero-image">
+				<div>
+					<h1>Flexbox is fucking COOL</h1>
+				</div>
+			</article>
+			<section class="flex-container">
+				<article class="flex-item">
+					<h2>Título</h2>
+					<p>
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem,
+						vel omnis nulla impedit cum atque recusandae rerum magnam illo placeat,
+						autem corporis laboriosam doloribus fugiat molestias consectetur voluptatum!
+						Eligendi, commodi.
+					</p>
+				</article>
+				<article class="flex-item">
+					<img src="img/01.jpg" alt="LoL" />
+				</article>
+			</section>
+			<section class="flex-container flex-row-reverse">
+				<article class="flex-item">
+					<h2>Título</h2>
+					<p>
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem,
+						vel omnis nulla impedit cum atque recusandae rerum magnam illo placeat,
+						autem corporis laboriosam doloribus fugiat molestias consectetur voluptatum!
+						Eligendi, commodi.
+					</p>
+				</article>
+				<article class="flex-item">
+					<img src="img/01.jpg" alt="LoL" />
+				</article>
+			</section>
+
+			<h2>Responsive sin Media Queries con Flexbox</h2>
+			<section class="flex-responsive-row">
+				<article class="flex-responsive-row-item">Item Responsivo 1</article>
+				<article class="flex-responsive-row-item">Item Responsivo 2</article>
+				<article class="flex-responsive-row-item">Item Responsivo 3</article>
+				<article class="flex-responsive-row-item">Item Responsivo 4</article>
+				<article class="flex-responsive-row-item">Item Responsivo 5</article>
+				<article class="flex-responsive-row-item">Item Responsivo 6</article>
+				<article class="flex-responsive-row-item">Item Responsivo 7</article>
+				<article class="flex-responsive-row-item">Item Responsivo 8</article>
+				<article class="flex-responsive-row-item">Item Responsivo 9</article>
+				<article class="flex-responsive-row-item">Item Responsivo 10</article>
+				<article class="flex-responsive-row-item">Item Responsivo 11</article>
+				<article class="flex-responsive-row-item">Item Responsivo 12</article>
+				<article class="flex-responsive-row-item">Item Responsivo 13</article>
+				<article class="flex-responsive-row-item">Item Responsivo 14</article>
+				<article class="flex-responsive-row-item">Item Responsivo 15</article>
+				<article class="flex-responsive-row-item">Item Responsivo 16</article>
+				<article class="flex-responsive-row-item">Item Responsivo 17</article>
+				<article class="flex-responsive-row-item">Item Responsivo 18</article>
+				<article class="flex-responsive-row-item">Item Responsivo 19</article>
+			</section>
+		</main>
+
+		<footer class="titulares">
+			<h2>Footer</h2>
+		</footer>
+	</body>
+</html>

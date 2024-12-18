@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="assets/estilos.css" />
+        <link rel="canonical" href="http://tudominio.com/la-url-canonical">
+        <link rel="icon" href="img/favicon.png">
+        <link rel="apple-touch-icon" href="img/favicon.png">
+        <meta name="theme-color" content="#FF6600">
+	</head>
+	<body>
+		<h2 id="inicio">Aprendiendo HTML</h2>
+
+		<h3>Temario del curso</h3>
+		<ul>
+			<li>
+				<a href="index.html#etiquetas-semanticas-estructurales"
+					>Etiquetas semánticas estructurales</a
+				>
+			</li>
+			<li>
+				<a href="index.html#etiquetas-bloque-vs-etiquetas-linea"
+					>Etiquetas de Bloque VS Etiquetas de Línea</a
+				>
+			</li>
+			<li><a href="index.html#imagenes">Imágenes</a></li>
+			<li><a href="index.html#figuras">Figuras</a></li>
+			<li><a href="index.html#listas-ordenadas">Listas Ordenadas</a></li>
+			<li><a href="index.html#listas-desordenadas">Listas desordenadas</a></li>
+			<li><a href="index.html#tablas">Tablas</a></li>
+			<li>
+				<a href="index.html#enlaces-protocolos-especiales"
+					>Enlaces y protocolos especiales</a
+				>
+			</li>
+			<li>
+				<a href="index.html#elementos-interactivos">Elementos Interactivos</a>
+			</li>
+			<li>
+				<a href="index.html#audio-video">Audio y Video</a>
+			</li>
+		</ul>
+
+		<h2 id="etiquetas-semanticas-estructurales">Etiquetas semánticas estructurales</h2>
+		<div>Es una etiqueta contenedora que no tiene semantica</div>
+		<header>header - Cabecera de un sitio web o de una sección</header>
+		<main>
+			main - Define la seccion principal del documento, sólo puede existir una etiqueta main
+			por documento
+		</main>
+		<footer>footer - Pié de página de un sitio web o de una sección</footer>
+		<nav>nav - Representa una navegación</nav>
+		<article>
+			article - Representa una sección autoconenida (que por si sola se explica)
+		</article>
+		<aside>aside - Representa contenido complementario o secundario</aside>
+		<section>section - Representa una sección de contenido genérico</section>
+		<address>address - Representa una dirección</address>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="etiquetas-bloque-vs-etiquetas-linea">Etiquetas de Bloque VS Etiquetas de Línea</h2>
+		<div>
+			La etiqueta de bloque por excelencia es la div, una etiqueta de bloque es aquella que
+			genera saltos de línea cons sus etiquetas hermanas
+		</div>
+		<span
+			>La etiqueta de línea por excelencia es la span, una etiqueta de línea solo ocupa el
+			espacio necesario que tiene su contenido</span
+		>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="imagenes">Imágenes</h2>
+		<img
+			src="img/periodic-table-of-html-elements.png"
+			alt="Tabla periódica de los elementos HTML"
+		/>
+		<img src="img/puesta-sol.jpg" alt="Puesta del sol y kEnAi" />
+		<img src="img/this-is-fine.gif" alt="Meme del perrito This Is Fine" />
+		<img src="img/kEnAi.svg" alt="kEnAi" />
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="figuras">Figuras</h2>
+		<figure>
+			<img
+				src="img/periodic-table-of-html-elements.png"
+				alt="Tabla periódica de los elementos HTML"
+			/>
+			<figcaption>Tabla de los Elementos HTML</figcaption>
+		</figure>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="listas-ordenadas">Listas Ordenadas</h2>
+		<h3>Las estaciones del año</h3>
+		<ol>
+			<li>Primavera</li>
+			<li>Verano</li>
+			<li>Otoño</li>
+			<li>Invierno</li>
+		</ol>
+
+		<ol start="3">
+			<li>Primavera</li>
+			<li>Verano</li>
+			<li>Otoño</li>
+			<li>Invierno</li>
+		</ol>
+
+		<ol reversed>
+			<li>Primavera</li>
+			<li>Verano</li>
+			<li>Otoño</li>
+			<li>Invierno</li>
+		</ol>
+
+		<ol type="i">
+			<li>Primavera</li>
+			<li>Verano</li>
+			<li>Otoño</li>
+			<li>Invierno</li>
+		</ol>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+		<h2 id="listas-desordenadas">Listas desordenadas</h2>
+		<h3>Cosas por hacer</h3>
+
+		<ul>
+			<li>01</li>
+			<li>02</li>
+			<li>03</li>
+		</ul>
+		<ul type="cirlce">
+			<li>01</li>
+			<li>02</li>
+			<li>03</li>
+		</ul>
+		<ul type="square">
+			<li>01</li>
+			<li>02</li>
+			<li>03</li>
+		</ul>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="tablas">Tablas</h2>
+
+		<table>
+			<thead>
+				<tr>
+					<th colspan="3">Tabla de los Santos de Athena</th>
+				</tr>
+				<tr>
+					<th>Nombre</th>
+					<th>Constelación</th>
+					<th>Tipo</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Ikki</td>
+					<td>Fénix</td>
+					<td>Bronce</td>
+				</tr>
+				<tr>
+					<td>Shaina</td>
+					<td rowspan="2">Ofiuco</td>
+					<td>Plata</td>
+				</tr>
+				<tr>
+					<td>Odiseo</td>
+					<td>Dorado</td>
+				</tr>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th colspan="3">
+						<small>Saint Seiya fue creado por Masami Kurumada</small>
+					</th>
+				</tr>
+			</tfoot>
+		</table>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="enlaces-protocolos-especiales">Enlaces y protocolos especiales</h2>
+		<a href="mailto:correo@gmail.com">Enlace a correo electrónico</a>
+		<br />
+		<a href="tel:5215512345678">Enlace a teléfono</a>
+		<br />
+		<a href="https://api.whatsapp.com/send?phone=5512345678&text=Hola">Enlace hacia Whatsapp</a>
+		<a href="index.html#inicio">☝️</a>
+
+		<hr />
+
+		<h2 id="elementos-interactivos">Elementos Interactivos</h2>
+		<button>Este es un botón</button>
+		<br />
+		<details open>
+			<summary>Título del acordeón</summary>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, ut.</p>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, ut.</p>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, ut.</p>
+		</details>
+		<details>
+			<summary>Título del acordeón</summary>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, ut.</p>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, ut.</p>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, ut.</p>
+		</details>
+		<br />
+		<dialog open>Esto es una ventana modal</dialog>
+
+		<a href="index.html#inicio">☝️</a>
+		<hr />
+
+		<h2 id="audio-video">Audio y Video</h2>
+		<audio src="media/Feels-PatrickPatrikios.mp3" controls preload></audio>
+		<br />
+		<video src="media/kenai.mp4" controls preload poster="img/puesta-sol.jpg"></video>
+		<br />
+		<a href="index.html#inicio">☝️</a>
+		<br />
+
+		<h2 id="iframes">Iframes</h2>
+		<iframe width="800px" src="media/emmet-cheat-sheet.pdf" frameborder="0"></iframe>
+
+		<a href="index.html#inicio">☝️</a>
+		<hr />
+		<h2>Formularios</h2>
+        <input type="text">
+        <br>
+        <input type="checkbox" name="" id="">
+        <br>
+        <input type="radio" name="" id="">
+        <br>
+        <input type="date" name="" id="">
+        <br>
+        <input type="color" name="" id="">
+        <br>
+        <input type="button" value="">
+        <br>
+        <input type="submit" value="">
+        <br>
+        <input type="reset">
+        <br>
+        <input type="file">
+        <br>
+        <input type="file" multiple>
+        <br>
+        <input type="hidden" name="" id="">
+        <br>
+        <input type="email">
+        <br>
+        <select name="" id="" multiple>
+            <option value="">HTML</option>
+            <option value="">JS</option>
+            <option value="">Java</option>
+            <option value="">React</option>
+            <option value="">Python</option>
+        </select>
+        <br>
+        <input type="text" value="Juan" readonly disabled>
+        <br>
+        <input type="text" placeholder="Escribe tu nombre" pattern="^[A-Za-z]+$" title="El campo solo acepta letras" required>
+
+        <hr>
+        <h2>Metaetiquetas para SEO</h2>
+	</body>
+</html>

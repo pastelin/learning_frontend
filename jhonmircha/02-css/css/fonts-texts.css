@@ -1,0 +1,123 @@
+/* 
+    * Estilos de la fuente
+        * font-family
+        * font-size
+        * font-weight
+        * font-style
+        * font-variant
+        * line-heigh
+        * font
+
+*/
+
+.font {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.5;
+    font-variant: small-caps;
+    font: italic small-caps bold 24px / 1.5 monospace
+}
+
+/* 
+   * Formato woff o woff2 - Web Open Font Format 
+
+   * font-display
+        * auto - permite que el navegador utilice el metodo predeterminado que suele ser block
+        * block - oculta brevemente el texto hasta que la fuente haya sido descargada por completo
+        * swap - indica al navegador que utilice la fuente alternativa para mostrar el texto hasta que la fuente personalizada se haya cargado por completo
+        * fallback - es una mezcla de auto y swap
+        * optional - ocultara el texto, luego lo cargara con la fuente alternativa y finalmente aplicara la fuente personalizada
+*/
+
+@font-face {
+    font-family: "Chalet";
+    src: url("../assets/Chalet.woff") format("woff");
+    font-size: 2rem;
+    font-display: swap;
+    /* src: url("../assets/Chalet.woff") format("woff"),
+        url("../assets/Chalet.woff2") format("woff2"); */
+}
+
+.chalet {
+    font-family: "Chalet", sans-serif;
+}
+
+@font-face {
+    font-family: "Pecita";
+    src: url("../assets/Pecita.woff") format("woff");
+    font-size: 2rem;
+    font-display: swap;
+}
+
+.pecita {
+    font-family: "Pecita", cursive;
+}
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+}
+
+
+/* 
+    * text-align : posicion del texto
+    * text-decoration : puede estar subrayado en las posiciones top y bottom
+    * text-ident : sangria inicial del texto
+    * text-overflow : coloca "..." si el texto excede las dimensiones, para que se visualice debe tener las siguientes propiedades
+        * overflow: hidden
+        * white-space: nowrap
+    * text-transform : permite poner el mayusculas, minusculas y primer letra de cada palabra en mayuscula el texto
+
+    * letter-spacing : espaciado de cada caracter
+    * white-space: indica como representa espacios en blanco
+    * word-break : propiedad que indica como romper una palabra
+    * word-spacing : propidad que indica el espaciado entre palabras
+    * writing-mode : propidad que indica la posicion del texto
+*/
+
+.text {
+    
+    font-size: 2rem;
+    text-align: center;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration: overline;
+    text-decoration: none;
+    text-indent: 1rem;
+    text-transform: capitalize;
+    text-transform: lowercase;
+    text-transform: uppercase;
+    text-transform: none;
+    letter-spacing: .5rem;
+    word-break: break-all;
+    writing-mode: vertical-lr;
+    writing-mode:vertical-rl;
+    writing-mode: horizontal-tb;
+}
+
+.text a {
+    text-decoration: none;
+}
+
+.text-overflow {
+    background-color: blanchedalmond;
+    border: thin solid black;
+    padding: 1rem;
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 2rem;
+}
+
+.white-space {
+    white-space: pre;
+}
+
+.word-spacing {
+    font-size: 2rem;
+    word-spacing: 1rem;
+}

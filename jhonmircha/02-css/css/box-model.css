@@ -1,0 +1,207 @@
+/* 
+Modelo de Caja: es la forma en que CSS ve a los elementos HTML y ¿como los ve?
+Como si fueran cajas con las siguientes propiedades
+
+    1. El contenido (content): EL contenido (texto) del elemento HTML tomando en cuenta sus dimensiones (width & height)
+    2 El borde (border): lo que delimita cada uno de los elementos HTML
+    3. El relleno (padding): son las distancias internas (La distancia del borde al contenido)
+    4. El margen (margin): son las distancias externas (la distancia entre el elemento html y sus elementos hermanos o padres)
+
+Dentro del modelo de caja hay que considerar que una caja tendrás 4 lados:
+    1. Arriba (top)
+    2. Derecha (right)
+    3. Abajo (bottom)
+    4. Izquierda (left)
+
+*/
+
+body {
+	margin: 0;
+}
+
+h1 {
+	width: 400px;
+	height: 200px;
+	border-width: 1px;
+	/* Propiedades de tipo shorthand */
+	border-color: green;
+	border-top-color: red;
+	border-width: thin; /* thin: 1px, medium: 3px, thick: 5px */
+	border-style: solid;
+	border: 2px dashed blue;
+}
+
+.caja-uno,
+caja-dos {
+	background-color: chocolate;
+	border: medium solid orange;
+
+	/* 
+    Esto aplica para margin y padding 
+    
+    1. valor = aplicat a los 4 lados
+    2 valores =
+    primer valor es para los lados verticales (t/b)
+    segundo valor es para los lados horizontales (l/r)
+    3 valores = 
+        primer valor es para top
+        segundo valor es para los lados horizontales (l/r)
+        tercer valor es para bottom
+        */
+	padding: 20px;
+	margin: 20px;
+	padding: 20px 40px;
+	margin: 40px 20px;
+    padding: 0 40px 20px;
+    margin: 50px 30px 0;
+}
+
+/**
+Caja de Linea
+ - Ocupan el espacio necesario para mostrar su contenido.
+ - No tienen dimensiones modificables (alto, ancho)
+ - Permiten otros elementos a su lado
+ - Padding y margin solo empujan a elementos adyacentes en horizontal, NUNCA EN VERTICAL
+ 
+Caja de Bloque
+ - Ocupan todo el ancho disponible, lo que genera saltos de linea
+ - Tienen dimensiones modificables(alto, ancho)
+ - No permiten otros elementos a su lado (aunque especifique un ancho, siguen ocupando todo el espacio disponible a lo ancho, generando saltos de linea)
+*/
+
+.caja-linea,
+.caja-bloque {
+    background-color: darkcyan;
+    color: white;
+    width: 500px;
+    height: 250px;
+    border: medium solid black;
+    padding: 16px;    
+}
+
+.caja-bloque {
+    margin: 32px;
+}
+
+.caja-linea {
+    margin: 48px;
+}
+
+
+/* 
+Propiedad Display
+    inline
+    block
+    inline-block - Se comporta como un elemento de liena pero acepta modificar sus dimensiones (alto y ancho)
+    none
+    table
+    list-item
+    flex
+    grid
+*/
+
+.caja-none,
+.caja-linea-bloque,
+.caja-hidden {
+    background-color: darkolivegreen;
+    color: white;
+    width: 600px;
+    height: 300px;
+    border: medium solid black;
+}
+
+.caja-linea-bloque {
+    display: inline-block;
+}
+
+.caja-hidden {
+    visibility: hidden;
+}
+
+.overflow {
+    background-color: darkturquoise;
+    width: 200px;
+    height: 100px;
+    overflow: visible;
+    overflow: hidden;
+    overflow: scroll;
+    overflow: auto;
+}
+
+/* Tamaño de Caja */
+
+.box-sizing-content,
+.box-sizing-border {
+    background-color: deepskyblue;
+    box-sizing: content-box;
+    width: 500px;
+    height: 250px;
+    border: thick solid black;
+}
+
+.box-sizing-border {
+    box-sizing: border-box;
+}
+
+.container-col-3 {
+    background-color: burlywood;
+    width: 600px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.container-col-3 > * {
+    box-sizing: border-box;
+    width: 200px;
+    border: thin solid red;
+    padding: 10px;
+    float: left;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+ 
+
+/* 
+Colapso de Márgenes Verticales 
+
+    Solo usar un margin top o bottom ya que si utilizas los dos estos no se suman sino que se colapsan
+
+*/
+.margin-collapse {
+    background-color: skyblue;
+}
+
+.margin-collapse section {
+    border: thin solid black;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.margin-collapse span {
+    display: inline-block;
+    margin-right: 16px;
+    border: thin solid black;
+    margin-left: 16px;
+    
+}
+
+
+/* Centrado de cajas */
+
+.sitio-web {
+    border: thin solid black;
+    background-color: thistle;
+    width: 800px;
+    height: 1000px;
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
