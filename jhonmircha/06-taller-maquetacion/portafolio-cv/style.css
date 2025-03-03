@@ -16,7 +16,7 @@
     --text-color: #222;
     --white-alpha-color: rgba(255, 255, 255, 0.5);
     --black-alpha-color: rgba(0, 0, 0, 0.5);
-    --font: "Raleway", sans-serif;
+    --font: 'Raleway', sans-serif;
     --max-width: 1200px;
     --header-height: 4rem;
 }
@@ -43,11 +43,11 @@ body {
 
 a {
     color: var(--link-color);
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 a:hover {
-    opacity: .75;
+    opacity: 0.75;
 }
 
 h1 {
@@ -72,12 +72,12 @@ h4 {
 
 h5 {
     margin: 0;
-    font-size: .85rem;
+    font-size: 0.85rem;
 }
 
 h6 {
     margin: 0;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 img {
@@ -93,7 +93,6 @@ p {
 
 /* ************* Carousel ************* */
 @keyframes carousel-slide {
-
     0% {
         transform: translateX(0%);
     }
@@ -109,9 +108,7 @@ p {
     75% {
         transform: translateX(-75%);
     }
-
 }
-
 
 .carousel {
     margin: 2rem auto;
@@ -120,7 +117,6 @@ p {
     text-align: center;
     overflow-x: hidden;
     background-color: var(--carousel-bg-color);
-
 }
 
 .carousel input {
@@ -132,8 +128,8 @@ p {
     border-radius: 50%;
     margin: 0 0.25rem;
     display: inline-block;
-    width: .75rem;
-    height: .75rem;
+    width: 0.75rem;
+    height: 0.75rem;
     cursor: pointer;
 }
 
@@ -151,29 +147,28 @@ p {
     * El combinador ~ separa dos selectores y selecciona el segundo elemento sólo si está precedido 
     * por el primero y ambos comparten un padre común. 
 */
-#slide-1:checked~.slides {
+#slide-1:checked ~ .slides {
     transform: translateX(0%);
 }
 
-#slide-2:checked~.slides {
+#slide-2:checked ~ .slides {
     transform: translateX(-25%);
 }
 
-#slide-3:checked~.slides {
+#slide-3:checked ~ .slides {
     transform: translateX(-50%);
 }
 
-#slide-4:checked~.slides {
+#slide-4:checked ~ .slides {
     transform: translateX(-75%);
 }
 
-#slide-1:checked~.slides-nav label#dot-1,
-#slide-2:checked~.slides-nav label#dot-2,
-#slide-3:checked~.slides-nav label#dot-3,
-#slide-4:checked~.slides-nav label#dot-4 {
+#slide-1:checked ~ .slides-nav label#dot-1,
+#slide-2:checked ~ .slides-nav label#dot-2,
+#slide-3:checked ~ .slides-nav label#dot-3,
+#slide-4:checked ~ .slides-nav label#dot-4 {
     background-color: var(--gray-dark-color);
 }
-
 
 /* ************* Contact Form ************* */
 .contact-form {
@@ -182,8 +177,8 @@ p {
     max-width: 800px;
 }
 
-.contact-form>* {
-    padding: .5rem;
+.contact-form > * {
+    padding: 0.5rem;
     margin: 1rem auto;
     display: block;
     width: 100%;
@@ -191,7 +186,7 @@ p {
 
 .contact-form input,
 .contact-form textarea {
-    font-size: .85rem;
+    font-size: 0.85rem;
     font-family: var(--font);
 }
 
@@ -205,14 +200,14 @@ p {
     resize: none;
 }
 
-.contact-form input[type="submit"] {
+.contact-form input[type='submit'] {
     margin-top: 0;
     cursor: pointer;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 
-.contact-form input[type="submit"]:hover {
-    opacity: .75;
+.contact-form input[type='submit']:hover {
+    opacity: 0.75;
 }
 
 .contact-form *::placeholder {
@@ -255,12 +250,10 @@ p {
         grid-column: span 2;
     }
 
-    .contact-form input[type="submit"] {
+    .contact-form input[type='submit'] {
         margin-left: 0;
     }
-
 }
-
 
 /* ************* Hero Image ************* */
 .hero-image {
@@ -286,7 +279,6 @@ p {
     color: var(--hero-text-color);
 }
 
-
 /* ************* Menu ************* */
 .menu-btn {
     outline: thin solid var(--first-color);
@@ -310,7 +302,7 @@ p {
     opacity: 0;
     /* * Specifies under what circumstances a given element can be the target element for a pointer event. */
     pointer-events: none;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .menu.is-active {
@@ -332,9 +324,7 @@ p {
     color: var(--white-color);
 }
 
-
 @media screen and (min-width: 1024px) {
-
     .menu-btn {
         display: none;
     }
@@ -358,8 +348,6 @@ p {
     .menu a:hover {
         background-color: transparent;
     }
-
-
 }
 
 /* ************* Modal ************* */
@@ -395,11 +383,10 @@ p {
     fill: var(--first-color);
 }
 
-.modal[id|="trabajo"]:target {
+.modal[id|='trabajo']:target {
     opacity: 1;
     pointer-events: auto;
 }
-
 
 /* ************* ProgressBar ************* */
 
@@ -425,12 +412,11 @@ progress::-moz-progress-bar {
     margin: 1rem auto;
 }
 
-.progress>p {
+.progress > p {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    font-size: .85rem;
-
+    font-size: 0.85rem;
 }
 
 /* ************* Utilities ************* */
@@ -446,11 +432,11 @@ progress::-moz-progress-bar {
 }
 
 .box-shadow-1 {
-    box-shadow: .25rem .25rem 1rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
 }
 
 .btn {
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     display: inline-block;
     width: 200px;
@@ -483,7 +469,7 @@ progress::-moz-progress-bar {
     border-top: thin solid var(--first-color);
     border-bottom: thin solid var(--first-color);
     margin: 2rem auto;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     width: 250px;
     text-align: center;
     color: var(--title-color);
@@ -526,7 +512,7 @@ progress::-moz-progress-bar {
 
 /* ************* Site Styles ************* */
 
-.about>article {
+.about > article {
     margin-bottom: 2rem;
 }
 
@@ -541,23 +527,22 @@ progress::-moz-progress-bar {
     align-items: center;
 }
 
-.contact-card>svg {
+.contact-card > svg {
     width: 2rem;
     height: 2rem;
     fill: var(--first-color);
 }
 
-.contact-card>small {
+.contact-card > small {
     margin-top: -1rem;
 }
 
 .footer {
     margin-bottom: var(--header-height);
-    padding: .5rem;
+    padding: 0.5rem;
     text-align: center;
     background-color: var(--third-color);
     color: var(--white-color);
-
 }
 
 .footer {
@@ -575,7 +560,7 @@ progress::-moz-progress-bar {
     background-color: var(--second-color);
 }
 
-.header>.container {
+.header > .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -612,7 +597,7 @@ progress::-moz-progress-bar {
     color: var(--white-color);
     opacity: 0;
     pointer-events: none;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .portfolio-card:hover .portfolio-card-info {
@@ -620,7 +605,7 @@ progress::-moz-progress-bar {
     pointer-events: auto;
 }
 
-.portfolio-card-info>div {
+.portfolio-card-info > div {
     padding: 1rem;
     border: thin solid var(--white-color);
     width: 100%;
@@ -637,7 +622,7 @@ progress::-moz-progress-bar {
 
 .portfolio-modal h3 {
     border-bottom: medium solid var(--first-color);
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     margin: 1rem auto;
     color: var(--title-color);
 }
@@ -678,14 +663,13 @@ progress::-moz-progress-bar {
 }
 
 @media screen and (min-width: 768px) {
-
     .contact-cards {
         display: grid;
         grid-template-columns: repeat(2, 48%);
         justify-content: space-between;
     }
 
-    .portfolio>.container {
+    .portfolio > .container {
         display: grid;
         grid-template-columns: repeat(2, 50%);
     }
@@ -704,7 +688,7 @@ progress::-moz-progress-bar {
         align-self: center;
     }
 
-    .services>.container {
+    .services > .container {
         display: grid;
         grid-template-columns: repeat(2, 45%);
         justify-content: space-between;
@@ -717,7 +701,6 @@ progress::-moz-progress-bar {
 }
 
 @media screen and (min-width: 1024px) {
-
     .about {
         display: grid;
         grid-template-columns: repeat(3, 30%);
@@ -732,11 +715,11 @@ progress::-moz-progress-bar {
     .header {
         position: sticky;
         top: 0;
-        padding: .5rem;
-        height: calc(var(--header-height) - .5rem);
+        padding: 0.5rem;
+        height: calc(var(--header-height) - 0.5rem);
     }
 
-    .portfolio>.container {
+    .portfolio > .container {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -744,7 +727,7 @@ progress::-moz-progress-bar {
         grid-column: span 3;
     }
 
-    .services>.container {
+    .services > .container {
         grid-template-columns: repeat(3, 30%);
     }
 
@@ -752,8 +735,5 @@ progress::-moz-progress-bar {
         grid-column: span 3;
     }
 }
-
-
-
 
 /* 5.50 */
